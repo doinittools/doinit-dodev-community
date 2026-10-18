@@ -46,7 +46,7 @@ Clearing your browser's site data for the Extension removes all of this, includi
 
 ## Data you put in
 - **CSV files and pasted rows** (Data Import) are read inside the open page only – they are not uploaded anywhere except, when you confirm, as the records you chose to create, update or delete in your org.
-- **Data Import and Perform update** are the only features that change Salesforce. They show a preview and a check first, and nothing is saved until you check "I understand" and confirm the record count and org. Deleted records go to the Salesforce Recycle Bin.
+- **Data Import** is the only feature that changes Salesforce. It shows a preview and a check first, and nothing is saved until you click the button that names the record count (a production org gets a warning next to it). Deleted records go to the Salesforce Recycle Bin.
 - **⬆ Import** of a query file reads the file you choose inside the page only.
 - **Where Is It Used** downloads Experience Cloud site definitions with the Metadata API's read-only *retrieve* call; the download is read in the open page and is not saved.
 

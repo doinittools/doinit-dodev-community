@@ -23,7 +23,7 @@ Everything runs in your browser, using the Salesforce login you already have. No
 ## Is doDev safe?
 - **It only talks to Salesforce.** doDev asks for one permission (`cookies`) and access to Salesforce sites only. It cannot read or change any other website, and it adds nothing to the Salesforce pages you open.
 - **Your data stays in your browser.** There is no doDev server, no account to create and no tracking. Requests go straight from your browser to your own Salesforce org, using the login you already have – and only to the org that login belongs to.
-- **It reads – it doesn't change anything – unless you ask.** The only tools that save data are Data Import and Perform update, and both show you what will change and need you to confirm before anything is sent.
+- **It reads – it doesn't change anything – unless you ask.** The only tool that saves data is Data Import: it shows you what will change, and nothing is sent until you click its button.
 - **Nothing installed in Salesforce.** No managed package, connected app or setup change in your org.
 - **Reviewed by Google.** Every version is checked by the Chrome Web Store before it is published.
 

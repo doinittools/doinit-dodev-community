@@ -1,0 +1,50 @@
+/* Copyright (c) 2026 doInit Tools. All rights reserved. See LICENSE.txt. */
+/* Help page */
+:root { --navy: #1e1b4b; --brand: #4f46e5; --brand-soft: #eef2ff; --text: #1e293b; --muted: #64748b; --border: #e2e8f0; --soft: #f1f5f9; --bg: #f8fafc;
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; font: 15px/1.6 var(--sans); -webkit-font-smoothing: antialiased; color: var(--text); background: var(--bg); }
+a { color: var(--brand); }
+code, kbd { font: 13px var(--mono); }
+code { background: var(--soft); padding: 1px 5px; border-radius: 4px; }
+kbd { border: 1px solid var(--border); border-bottom-width: 2px; background: #fff; padding: 0 6px; border-radius: 4px; }
+
+.hTop { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 20px; padding: 10px 24px; background: var(--navy); color: #fff; }
+.hBrand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-size: 17px; white-space: nowrap; }
+.hBrand img { width: 28px; height: 28px; }
+.hSearch { flex: 0 1 460px; height: 36px; padding: 0 14px; border: 1px solid rgba(255, 255, 255, .3); border-radius: 18px; background: rgba(255, 255, 255, .12); color: #fff; font: inherit; font-size: 14px; }
+.hSearch::placeholder { color: #94a3b8; }
+.hSearch:focus { outline: none; background: #fff; color: var(--text); }
+
+.hLayout { display: grid; grid-template-columns: 250px minmax(0, 860px); gap: 32px; max-width: 1180px; margin: 0 auto; padding: 24px; }
+.hToc { position: sticky; top: 76px; align-self: start; max-height: calc(100vh - 96px); overflow: auto; display: flex; flex-direction: column; font-size: 14px; }
+.hToc a { padding: 4px 10px; border-radius: 6px; color: var(--text); text-decoration: none; }
+.hToc a:hover { background: var(--soft); }
+.hToc a.on { background: var(--brand-soft); color: var(--brand); font-weight: 600; box-shadow: inset 3px 0 0 var(--brand); }
+.hToc a[hidden] { display: none; }
+.hTocGroup { margin: 12px 0 2px; padding: 0 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+
+.hMain section { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 18px 24px; margin-bottom: 16px; }
+.hMain h1 { margin: 0 0 8px; font-size: 26px; }
+.hMain h2 { margin: 0 0 6px; font-size: 21px; }
+.hMain h3 { margin: 16px 0 4px; font-size: 16px; }
+.hMain ul, .hMain ol { padding-left: 22px; }
+.hMain li { margin: 4px 0; }
+.hAsk { margin: 0 0 10px; color: var(--muted); font-style: italic; }
+.hNote { color: var(--muted); font-size: 14px; }
+.hNoMatch { color: var(--muted); }
+.hTable { border-collapse: collapse; }
+.hTable td { padding: 6px 14px 6px 0; border-bottom: 1px solid var(--soft); vertical-align: top; }
+.hMain dt { font-weight: 600; margin-top: 10px; }
+.hMain dd { margin: 2px 0 0 0; color: #333; }
+mark { background: #ffe58f; padding: 0 1px; }
+
+@media (max-width: 820px) {
+  .hLayout { grid-template-columns: 1fr; padding: 16px; }
+  .hToc { position: static; max-height: none; flex-direction: row; flex-wrap: wrap; gap: 4px; }
+  .hTocGroup { width: 100%; }
+}
+@media print { .hTop, .hToc { display: none; } .hLayout { display: block; } .hMain section { break-inside: avoid; border: 0; } }
+
+.hVer { margin-left: 10px; font-size: 12px; color: #6b7280; white-space: nowrap; }
