@@ -20,7 +20,7 @@
 <body>
   <header class="hTop">
     <a class="hBrand" href="#start"><img src="icon48.png" alt=""><span><b>doDev</b> Help</span></a>
-    <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.3.5</span>
+    <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.3.6</span>
     <input id="hSearch" class="hSearch" type="search" placeholder="Search the help – e.g. columns, record access, SOQL" aria-label="Search the help">
   </header>
 
@@ -76,7 +76,7 @@
           <li><b>Org</b> (top right): the org every tool works in. It starts with the org you launched doDev from, marked <i>(launch org)</i> – also after a reload – and lists every other org you are logged into in this browser. Switching it reloads the open tools in that org (you are asked first – their results are cleared); compare tools use it as the first org.</li>
           <li><b>Sections:</b> Data · Find · Compare · Monitor. A section shows its tools as tiles (each says what question it answers) and on one line under the top bar. A ● on a section means something in it is still running.</li>
           <li><b>Several at once:</b> every tool keeps its work while you switch, so a query and a comparison can run side by side. <b>+</b> opens another copy, <b>×</b> closes one, double-click a tool's label to rename it, and <b>Open tabs (n) ▾</b> lists everything open – each by what it is about (e.g. what you searched), with its tool underneath.</li>
-          <li><b>Search box</b> (top, Ctrl+K): type any metadata or user – an object, field, flow, Apex class, LWC, profile, label – or a tool. <b>All ▾</b> narrows it to one type. Clicking into the empty box shows your recent searches for this org. A result opens its <a href="#inspect">Find Any Metadata</a> page.</li>
+          <li><b>Search box</b> (top, Ctrl+K): type any metadata or user – an object, field, flow, Apex class, LWC, profile, label – or a tool. <b>All ▾</b> narrows it to one type. Results show as they arrive, in this order: objects, permission sets, profiles, permission set groups, then the rest – custom fields last, unless you type a field's full name. Clicking into the empty box shows your recent searches for this org. A result opens its <a href="#inspect">Find Any Metadata</a> page.</li>
           <li><b>Footer</b> (bottom of every screen): Help, Report an issue, Community &amp; support, Privacy policy and the contact email.</li>
           <li><b>Dates and times</b> show in your Salesforce time zone (your Salesforce settings → Language &amp; Time Zone), as Salesforce shows them.</li>
           <li><b>↺ Restore last session</b> reopens the tools you had open with their last inputs (never their results).</li>
@@ -163,7 +163,8 @@
           <li>Check <i>Include inactive users</i> if you want them too, then <b>Find users</b>.</li>
         </ol>
         <ul>
-          <li>The tree lists <b>Profiles</b>, <b>Permission sets</b> and <b>Permission set groups</b> with head counts; click one to see its people.</li>
+          <li>The tree lists <b>Profiles</b>, <b>Permission sets</b> and <b>Permission set groups</b> in separate sections, with head counts; click one to see its people.</li>
+          <li>A permission set that is in permission set groups shows a <b>2 groups</b> button: click it to list those groups, and pick one to see the people it gives the access to.</li>
           <li>For objects and fields the table shows a ✓ per access level (View All / Modify All in orange).</li>
           <li>The search above the table finds both people and profiles / permission sets. Hover a <i>Group:</i> pill to see the permission sets in that group.</li>
           <li><b>📊 Access by source</b>: how many people each profile, permission set or group gives each level.</li>
@@ -179,6 +180,7 @@
           <li>Check <i>Include inactive users</i> if needed and click <b>Check access</b>.</li>
         </ol>
         <p><b>Everyone:</b> the tree groups people by why they have access – <i>Owner</i>, <i>Role hierarchy</i> (roles nested as in the hierarchy), <i>Sharing rules</i> (who each rule shares with), <i>Manual shares</i>, <i>Teams</i>, <i>Territories</i>, <i>Global Modify All Data</i>, <i>Global View All Data</i>, <i>Modify All on the object</i>, <i>View All on the object</i> and <i>Parent record</i>. Click any entry to see its people. People who get a share but lack Read on the object are listed separately.</p>
+        <p>The pills above the tree – <i>Full access</i>, <i>Read/Write</i>, <i>Read only</i>, <i>Blocked: no Read on the object</i> and <i>No access</i>, each with its count – list only those people when clicked. Click several to combine them; <b>All</b> clears them.</p>
         <p>The people table shows each person's <b>User Id</b>, and the filter box also finds a person by user Id. To check one person, you can paste their user Id (005…) when picking users.</p>
         <p><b>Specific users:</b> one column per person with their access level and every reason.</p>
       </section>
@@ -242,6 +244,7 @@
         </ol>
         <ul>
           <li>The tree groups what people hold: <i>Everyone has</i>, <i>Most have</i>, <i>Only a few have</i>, <i>Licences</i> – then <i>Profiles</i> and <i>People</i> (those who differ first). Click a permission set to see who has it and who is missing it, or a person to see what they're missing.</li>
+          <li>The <b>Matrix</b> lists the profiles first, in their own section, then the permission sets, groups and licences.</li>
           <li>Views: <b>Coverage</b>, <b>Matrix</b>, <b>Differences per person</b> and <b>Suggested permission set group</b> (with a deployable file and an assignment plan).</li>
         </ul>
       </section>
