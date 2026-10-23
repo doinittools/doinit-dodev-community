@@ -7,7 +7,9 @@ description: Free Chrome extension for Salesforce admins and developers. See who
 
 doDev is a free Chrome extension for Salesforce admins and developers. It answers the everyday questions about an org – who has access and why, what is different between two users or orgs, and what the data looks like – without installing anything in Salesforce.
 
-**[Install doDev from the Chrome Web Store](https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd)** · [Help and examples](help/) · [Report a bug or request a feature](https://github.com/doinittools/doinit-dodev-community/issues)
+**[Install doDev from the Chrome Web Store](https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd)** · [How-to guides](how-to/) · [Help and examples](help/) · [Report a bug or request a feature](https://github.com/doinittools/doinit-dodev-community/issues)
+
+**How-to guides:** [compare two profiles or permission sets](how-to/compare-profiles-and-permission-sets) · [who has access to a field](how-to/who-has-access-to-a-field) · [users with a system permission](how-to/users-with-a-system-permission) · [who can access a record and why](how-to/why-can-a-user-see-a-record) · [where a field is used](how-to/where-is-a-field-used)
 
 ## Who has access in Salesforce – and why
 
