@@ -20,6 +20,7 @@
 <body>
   <header class="hTop">
     <a class="hBrand" href="#start"><img src="icon48.png" alt=""><span><b>doDev</b> Help</span></a>
+    <a class="hGuidesTop" href="../how-to/">📘 How-to guides</a>
     <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.3.6</span>
     <input id="hSearch" class="hSearch" type="search" placeholder="Search the help – e.g. columns, record access, SOQL" aria-label="Search the help">
   </header>
@@ -48,6 +49,7 @@
       <div class="hTocGroup">Monitor</div>
       <a href="#jobs">Jobs</a>
       <div class="hTocGroup">More</div>
+      <a href="../how-to/">How-to guides ↗</a>
       <a href="#keys">Keyboard shortcuts</a>
       <a href="#trouble">Troubleshooting</a>
       <a href="#privacy">Privacy and your data</a>
@@ -108,6 +110,7 @@
       <section id="data">
         <h2>Data Explorer</h2>
         <p class="hAsk">Query records with SOQL, or search text across objects with SOSL.</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/query-salesforce-data-without-soql">Query Salesforce data without writing SOQL</a></p>
         <h3>Write a query</h3>
         <ol>
           <li>Type an object in the object box (top left) and pick it – a starter query appears – or type SOQL straight into the editor.</li>
@@ -137,6 +140,7 @@
       <section id="import">
         <h2>Data Import</h2>
         <p class="hAsk">Load, update or delete records – the only tool that writes to Salesforce.</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/import-update-delete-records-from-csv">Import, update or delete records from a CSV or Excel</a></p>
         <ol>
           <li>At the top: the org, the <b>object</b> (it loads as soon as you pick it – no Start button) and the <b>Operation</b> – Insert, <b>Update</b> (by Id, the default), Upsert (by an external Id), Delete (by Id) or <b>Hard delete</b> (skips the Recycle Bin; needs a Bulk API and the <i>Bulk API Hard Delete</i> permission). Change it any time; the rows are checked again.</li>
           <li>Next to it, where the records come from:
@@ -158,6 +162,7 @@
       <section id="who">
         <h2>Who Has Metadata Access</h2>
         <p class="hAsk">Who has this permission, and where does it come from?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/who-has-access-to-a-field">Who has access to a field</a> · <a href="../how-to/users-with-a-system-permission">Users with a system permission (e.g. Export Reports)</a></p>
         <ol>
           <li>Search any system permission, object, field, Apex class, Visualforce page, custom permission, app, connected app or flow. For a field, pick the object and type <code>.</code> (or type <code>Account.</code>) to list its fields.</li>
           <li>Check <i>Include inactive users</i> if you want them too, then <b>Find users</b>.</li>
@@ -174,6 +179,7 @@
       <section id="record">
         <h2>Who Has Record Access</h2>
         <p class="hAsk">Who can open this record, and why?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/why-can-a-user-see-a-record">Who can access a record – and why</a></p>
         <ol>
           <li>Enter the record ID (15 or 18 characters).</li>
           <li>Choose <b>Everyone</b> (default) or <b>Specific users</b> – then pick users one by one; each becomes a pill (× removes it).</li>
@@ -188,6 +194,7 @@
       <section id="refs">
         <h2>Where Is It Used</h2>
         <p class="hAsk">Where is this used – before I change or delete it?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/where-is-a-field-used">Where a field is used before you change or delete it</a></p>
         <ol>
           <li>Choose the type (field, object, profile, role, group, permission set, Apex class, label, custom permission, record type, or any text) and the name or Id.</li>
           <li>In <b>What to search</b> (right), check the places to search. The <i>(slower)</i> ones – flows, Lightning pages and apps, quick actions, validation rules, reports, Experience Cloud sites, OmniStudio, prompt templates and Agentforce – need one call per item, so they start unchecked and <b>up to 3</b> can be checked at a time. <i>All</i> checks the quick places only.</li>
@@ -203,6 +210,7 @@
       <section id="inspect">
         <h2>Find Any Metadata</h2>
         <p class="hAsk">Find anything in the org and see everything about it on one page.</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/find-any-metadata">Find any metadata in an org</a> · <a href="../how-to/everything-a-user-can-access">See everything a user can access</a></p>
         <ul>
           <li>Search from the box at the top of the workspace, or in this tool. Objects, fields, users, flows, Apex, LWC, Aura, Visualforce, profiles, permission sets, roles, groups, labels, static resources, email templates, Lightning pages and validation rules each have their own page.</li>
           <li><b>Code</b> shows with line numbers and colours. <b>Find in file</b> (or Ctrl+F inside it) marks every match; Enter / Shift+Enter step through them.</li>
@@ -217,12 +225,14 @@
       <section id="users">
         <h2>Compare Users</h2>
         <p class="hAsk">Why can one user see or do something another user can't?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-two-users">Compare two users</a> · <a href="../how-to/compare-users-in-two-salesforce-orgs">Compare a user in two orgs</a></p>
         <p>Pick 2–5 users (from one org or several) and click <b>Compare</b>. Results combine each user's profile, permission sets and groups, and also cover assignments, licences, groups, queues, teams, territories, the role path and the user record. Each difference says which profile, permission set or group grants it. The layout is the same as <a href="#ps">Compare Permissions</a>.</p>
       </section>
 
       <section id="ps">
         <h2>Compare Permissions</h2>
         <p class="hAsk">Why can one profile or permission set do something another can't?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-profiles-and-permission-sets">Compare two profiles or permission sets</a> · <a href="../how-to/compare-profiles-between-two-salesforce-orgs">A profile between two orgs</a> · <a href="../how-to/compare-profile-with-permission-set">A profile with a permission set</a> · <a href="../how-to/compare-permission-sets-between-sandbox-and-production">A permission set between sandbox and production</a> · <a href="../how-to/compare-permission-set-groups">Permission set groups</a></p>
         <ol>
           <li>Pick 2–5 profiles, permission sets or permission set groups, from one org or several. <b>Categories ▾</b> chooses what is compared.</li>
           <li>Click <b>Compare</b>.</li>
@@ -238,6 +248,7 @@
       <section id="persona">
         <h2>Role &amp; Profile Members</h2>
         <p class="hAsk">What does everyone in a role or profile actually have – and who is different?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/role-and-profile-members">What everyone in a role or profile has – and who is different</a></p>
         <ol>
           <li>Pick a role (optionally with the roles below it) or a profile.</li>
           <li>Click <b>Build matrix</b>.</li>
@@ -252,24 +263,28 @@
       <section id="code">
         <h2>Compare Code &amp; Metadata</h2>
         <p class="hAsk">What code and metadata differ between two orgs – before a deployment?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-apex-and-metadata-between-orgs">Compare Apex and metadata between sandbox and production</a></p>
         <p>Pick two orgs and click <b>Compare code &amp; metadata</b>. Everything is compared by default; <b>⚙ What to compare</b> narrows the types or names (remembered for that pair of orgs). It is open beside the inputs when the tool opens, and closes when the results show – reopen it with the same button. Results are a project tree with changed / same counts; click a component or file for a side-by-side diff (the button switches to one column). When only the line endings differ (Windows CRLF against Unix LF, or a missing last line break), that is shown instead – each line's ending marked. ↑ / ↓ (or j / k) move between changes. Global value sets, custom metadata records and custom settings are <i>(slower)</i> – one call per item – so they start unchecked, up to 3 at a time.</p>
       </section>
 
       <section id="object">
         <h2>Compare Objects</h2>
         <p class="hAsk">Is this object the same in both orgs?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-an-object-between-orgs">Compare an object between two orgs</a></p>
         <p>Type the object, pick two orgs and click <b>Compare object</b>. You get object settings, every field attribute, picklist values (also per record type), record types, validation rules, triggers, record-triggered flows, layouts and Lightning pages, with the differences highlighted. On the left, a tree lists <i>All differences</i>, then each section with its changed items, and the sections that are the same in every org under <i>Identical in all orgs</i>. Click a section or an item to see just that on the right; the filter above narrows the tree.</p>
       </section>
 
       <section id="org">
         <h2>Compare Org Settings</h2>
         <p class="hAsk">How are two orgs set up differently?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-org-settings">Compare settings between two orgs</a></p>
         <p>Pick two orgs and click <b>Compare orgs</b>: org-wide defaults, role hierarchy, password and session policies, trusted IP ranges, connected app policies and organization settings. Values that differ from the first org are highlighted. On the left, a tree lists <i>All differences</i>, then each section with its changed items, and the sections that are the same in every org under <i>Identical in all orgs</i>. Click a section or an item to see just that on the right; the filter above narrows the tree.</p>
       </section>
 
       <section id="jobs">
         <h2>Jobs</h2>
         <p class="hAsk">Which scheduled and background jobs ran, when, and which failed – and what exactly happened to this one?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/monitor-scheduled-apex-jobs">Monitor scheduled and failed Apex jobs</a></p>
         <p>There are two ways to start:</p>
         <ul>
           <li><b>Load all jobs – last 7 days</b> shows every job.</li>

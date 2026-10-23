@@ -48,3 +48,10 @@ mark { background: #ffe58f; padding: 0 1px; }
 @media print { .hTop, .hToc { display: none; } .hLayout { display: block; } .hMain section { break-inside: avoid; border: 0; } }
 
 .hVer { margin-left: 10px; font-size: 12px; color: #6b7280; white-space: nowrap; }
+
+/* Under each tool's question: its how-to guides */
+.hGuides { margin: -4px 0 14px; padding: 8px 12px; border-left: 3px solid var(--brand, #4f46e5); background: #f5f6ff; border-radius: 0 6px 6px 0; font-size: 14px; line-height: 1.7; }
+.hGuides b { color: var(--navy, #1e1b4b); margin-right: 2px; }
+/* Header: all guides */
+.hGuidesTop { color: #fff; text-decoration: none; font-size: 14px; white-space: nowrap; padding: 4px 10px; border: 1px solid rgba(255, 255, 255, .35); border-radius: 999px; }
+.hGuidesTop:hover { background: rgba(255, 255, 255, .12); }
