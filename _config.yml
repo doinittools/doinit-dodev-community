@@ -1,5 +1,7 @@
 title: doDev – Free Salesforce Admin & Developer Tools
 description: Free Chrome extension for Salesforce admins and developers – see who has access and why, compare permission sets, users and orgs, and build SOQL queries.
+# Shown after the title on the home page ("doDev – Free Salesforce Admin & Developer Tools | Chrome extension")
+tagline: Chrome extension
 theme: jekyll-theme-primer
 lang: en
 # The site's address, so search engines get full links (canonical, sitemap, social cards)
