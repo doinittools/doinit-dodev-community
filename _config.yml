@@ -1,3 +1,14 @@
-title: doDev
-description: Free Chrome toolkit for Salesforce admins and developers – find, compare and monitor your org.
+title: doDev – Salesforce Admin & Developer Tools
+description: Free Chrome extension for Salesforce admins and developers – see who has access and why, compare permission sets, users and orgs, and build SOQL queries.
 theme: jekyll-theme-primer
+lang: en
+# The site's address, so search engines get full links (canonical, sitemap, social cards)
+url: https://doinittools.github.io
+baseurl: /doinit-dodev-community
+logo: /help/icon48.png
+image: /social.png
+author: doInit Tools
+# Both are supported by GitHub Pages: page titles and meta tags, and sitemap.xml
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap

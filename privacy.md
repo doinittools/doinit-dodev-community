@@ -1,3 +1,8 @@
+---
+title: Privacy policy – doDev for Salesforce
+description: doDev runs entirely in your browser. It reads only the Salesforce org you are logged into and collects, stores and sends nothing.
+---
+
 # Privacy Policy
 
 *Applies to: "doDev – Admin & Dev Toolkit for Salesforce" (the "Extension"), published by doInit Tools.*
