@@ -10,6 +10,9 @@ baseurl: /doinit-dodev-community
 logo: /help/icon48.png
 image: /social.png
 author: doInit Tools
+# Google Search Console: proves the site is ours (a meta tag on the home page)
+webmaster_verifications:
+  google: R27g4gj0_RsnP50A1sxilHXnhYlgQ_mHFPHZl5AL-Dk
 # Both are supported by GitHub Pages: page titles and meta tags, and sitemap.xml
 plugins:
   - jekyll-seo-tag
