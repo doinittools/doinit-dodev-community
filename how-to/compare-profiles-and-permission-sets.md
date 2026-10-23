@@ -1,14 +1,14 @@
 ---
 title: How to compare two profiles or permission sets in Salesforce
 description: Compare Salesforce profiles, permission sets and permission set groups side by side – objects, fields, system permissions, Apex and tabs – even across a sandbox and production org.
-image: /how-to/img/compare-permission-sets.png
+image: /how-to/img/compare-profiles-and-permission-sets.png
 ---
 
 # How to compare two profiles or permission sets in Salesforce
 
 **Short answer:** Salesforce Setup has no compare button for profiles or permission sets. You either open them one by one, export them with the Metadata API and diff the files, or use a tool that lines them up for you. doDev, a free Chrome extension, shows every difference in one table – including between two orgs.
 
-![Two permission sets compared in doDev: object permissions side by side, green for only in the first, red for only in the second](img/compare-permission-sets.png)
+![Two profiles compared in doDev: system permissions that differ, and every section of the comparison – objects, fields, tabs, apps, Apex, connected apps – with ✓ where they are the same](img/compare-profiles-and-permission-sets.png)
 
 ## Compare them with doDev
 
@@ -38,6 +38,8 @@ When the question is "why can Anna do this and Ben can't?", use **Compare → Us
 **Can I compare a permission set group?** Yes – doDev uses the group's combined permissions, after muting.
 
 **Does it change anything in my org?** No. Comparing only reads. doDev runs in your browser with your existing Salesforce login; nothing is installed in the org.
+
+Related: [compare a profile between two orgs](compare-profiles-between-two-salesforce-orgs) · [compare a profile with a permission set](compare-profile-with-permission-set) · [compare a permission set between sandbox and production](compare-permission-sets-between-sandbox-and-production) · [compare permission set groups](compare-permission-set-groups)
 
 ---
 

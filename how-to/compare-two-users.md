@@ -1,14 +1,14 @@
 ---
-title: Why can one Salesforce user do something another can't? Compare two users
+title: How to compare two users in Salesforce – why can one do what another can't?
 description: Compare two to five Salesforce users side by side – profile, permission sets, groups, licences, queues, role – and see which one grants each difference.
 image: /how-to/img/compare-two-users.png
 ---
 
-# Why can one Salesforce user do something another can't?
+# How to compare two users in Salesforce – why can one do what another can't?
 
 **Short answer:** two users with the same job title often have different access, because it adds up from a profile, several permission sets and permission set groups – plus licences, public groups, queues and the role. Salesforce has no side-by-side view of two users. doDev, a free Chrome extension, compares them and says what grants each difference.
 
-![Two users compared in doDev: every difference by section – permission set assignments, objects, fields, system permissions, apps and more](img/compare-two-users.png)
+![Two users in one Salesforce org compared in doDev: permission set assignments, objects, fields, Apex and custom permissions that differ, every other section marked ✓ the same](img/compare-two-users.png)
 
 ## Compare them with doDev
 
@@ -27,6 +27,8 @@ You get:
 ## Doing it without a tool
 
 Open both users' records, note their profile and every permission set and group, and compare those one by one in Setup – or query `PermissionSetAssignment` for each user and diff the permissions yourself.
+
+Related: [compare a user in two Salesforce orgs](compare-users-in-two-salesforce-orgs) · [see everything a user can access](everything-a-user-can-access) · [role and profile members](role-and-profile-members)
 
 ---
 

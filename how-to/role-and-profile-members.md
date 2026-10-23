@@ -4,7 +4,7 @@ description: See which permission sets, groups and licences everyone in a Salesf
 image: /how-to/img/role-and-profile-members.png
 ---
 
-# What do all users in a role or profile have – and who is different?
+# What do all users in a Salesforce role or profile have – and who is different?
 
 **Short answer:** people in the same role or profile drift apart over time – one gets an extra permission set, another misses one. Salesforce lists the users of a profile, but not what they hold beyond it. doDev, a free Chrome extension, builds a matrix of everyone in the role or profile and what they hold.
 

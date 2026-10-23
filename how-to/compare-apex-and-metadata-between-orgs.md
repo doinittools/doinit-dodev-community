@@ -1,10 +1,10 @@
 ---
-title: How to compare Apex and metadata between sandbox and production
+title: How to compare Apex and metadata between Salesforce sandbox and production
 description: Compare Apex classes, triggers, LWC, flows and other metadata between two Salesforce orgs – a project tree of what changed and a side-by-side diff – before a deployment.
 image: /how-to/img/compare-apex-and-metadata-between-orgs.png
 ---
 
-# How to compare Apex and metadata between sandbox and production
+# How to compare Apex and metadata between Salesforce sandbox and production
 
 **Short answer:** change sets don't show what is different between two orgs. The usual way is to retrieve both orgs' metadata with the Salesforce CLI and compare the folders in an editor. doDev, a free Chrome extension, compares the two orgs you are logged into directly and shows a side-by-side diff.
 
