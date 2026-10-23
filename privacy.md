@@ -1,5 +1,5 @@
 ---
-title: Privacy policy – doDev for Salesforce
+title: Privacy policy
 description: doDev runs entirely in your browser. It reads only the Salesforce org you are logged into and collects, stores and sends nothing.
 ---
 
