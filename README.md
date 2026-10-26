@@ -6,7 +6,7 @@
 
 ### [⬇️ Add to Chrome – free](https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd)
 
-## Salesforce superpowers, right in your browser.
+## Salesforce dev superpowers for everyone
 
 ✅ Free · ✅ No server · ✅ No account · ✅ No connected app · ✅ Nothing installed in your org · ✅ Any org you're logged into
 
