@@ -1,0 +1,18 @@
+<footer>
+  <div class="wrap">
+    <div>© doInit Tools · <a href="mailto:doinittools@gmail.com">doinittools@gmail.com</a><br>Not affiliated with or endorsed by Salesforce, Inc. Salesforce is a trademark of Salesforce, Inc.</div>
+    <nav><a href="https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd">Chrome Web Store</a><a href="{{ '/how-to/' | relative_url }}">How-to guides</a><a href="{{ '/help/' | relative_url }}">Help</a><a href="{{ '/privacy' | relative_url }}">Privacy</a><a href="https://github.com/doinittools/doinit-dodev-community/issues">Report an issue</a></nav>
+  </div>
+</footer>
+<script>
+  // Mark where you are: the menu item for this part of the site, and this guide in the list
+  (function () {
+    var path = location.pathname.replace(/\.html$/, '').replace(/\/$/, '') + '/';
+    document.querySelectorAll('.nav a[data-here]').forEach(function (a) {
+      if (path.indexOf(a.getAttribute('data-here').replace(/\/?$/, '/')) > -1) a.setAttribute('aria-current', 'page');
+    });
+    document.querySelectorAll('.howto li a').forEach(function (a) {
+      if (a.pathname.replace(/\.html$/, '').replace(/\/$/, '') + '/' === path) a.classList.add('on');
+    });
+  })();
+</script>

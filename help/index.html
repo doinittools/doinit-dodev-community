@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <!-- Copyright (c) 2026 doInit Tools. All rights reserved. See LICENSE.txt. -->
 <html lang="en">
@@ -16,36 +19,23 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="icon48.png">
   <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="../assets/site.css">
   <link rel="stylesheet" href="help.css">
 </head>
 <body>
-  <header class="top">
-    <div class="wrap">
-      <a class="brand" href="../"><img src="icon48.png" alt="">doDev <small>– Admin &amp; Dev Toolkit for Salesforce</small></a>
-      <nav class="nav">
-        <a href="../#find">Features</a>
-        <a href="../how-to/">How-to guides</a>
-        <a href="./" aria-current="page">Help</a>
-        <a href="../#faq">FAQ</a>
-        <a href="../privacy">Privacy</a>
-        <a class="cta" href="https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Add to Chrome – free</a>
-      </nav>
-    </div>
-  </header>
+{% include topbar.html %}
 
-  <div class="head">
-    <div class="wrap">
-      <div class="crumbs"><a href="../">Home</a> › Help</div>
-      <h1>doDev Help</h1>
-      <div class="headRow">
-        <input id="hSearch" class="hSearch" type="search" placeholder="Search the help – e.g. columns, record access, SOQL" aria-label="Search the help">
-        <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.3.6</span>
-      </div>
-      <ul class="trust"><li>Free</li><li>No server</li><li>No account</li><li>No connected app</li><li>Nothing installed in your org</li><li class="priv"><a href="../privacy">🔒 How your data is protected →</a></li></ul>
-    </div>
+  <div class="hero">
+    <div class="wrap"><h1>doDev Help</h1></div>
   </div>
 
-  <div class="wrap hLayout">
+  <div class="wrap pageGrid">
+   <div class="mainCol">
+    <div class="hSearchRow">
+      <input id="hSearch" class="hSearch" type="search" placeholder="Search the help – e.g. columns, record access, SOQL" aria-label="Search the help">
+      <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.3.6</span>
+    </div>
+    <div class="hLayout">
     <nav class="hToc" aria-label="Contents">
       <a href="#start">Getting started</a>
       <a href="#workspace">The workspace</a>
@@ -387,26 +377,11 @@
         <p class="hNote">Not affiliated with or endorsed by Salesforce, Inc. Salesforce is a trademark of Salesforce, Inc.</p>
       </section>
     </main>
-    <aside class="hSide">
-      <div class="box get">
-        <b>doDev – free Chrome extension</b>
-        <p>Who has access and why, compare permissions, users and orgs, and query data without SOQL – right in your browser.</p>
-        <a class="cta" href="https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Add to Chrome – free</a>
-        <a class="priv" href="../privacy">🔒 How your data is protected →</a>
-      </div>
-      <div class="box">
-        <b class="boxTitle">📚 Step by step</b>
-        <p class="boxText">20 how-to guides with screenshots – what Setup offers, and the quick way with doDev.</p>
-        <a class="more" href="../how-to/">All how-to guides →</a>
-      </div>
-    </aside>
-  </div>
-  <footer>
-    <div class="wrap">
-      <div>© doInit Tools · <a href="mailto:doinittools@gmail.com">doinittools@gmail.com</a><br>Not affiliated with or endorsed by Salesforce, Inc. Salesforce is a trademark of Salesforce, Inc.</div>
-      <nav><a href="https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd">Chrome Web Store</a><a href="../how-to/">How-to guides</a><a href="./">Help</a><a href="../privacy">Privacy</a><a href="https://github.com/doinittools/doinit-dodev-community/issues">Report an issue</a></nav>
     </div>
-  </footer>
+   </div>
+  {% include howto.html %}
+  </div>
+{% include footer.html %}
   <script src="help.js"></script>
 </body>
 </html>
