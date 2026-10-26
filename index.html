@@ -51,6 +51,8 @@ description: Free Chrome extension for Salesforce admins and developers. See who
   .hero h1 em { font-style: normal; background: linear-gradient(90deg, var(--sky), #a5b4fc); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .trust { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 24px; padding: 0; list-style: none; color: #c7d2fe; font-size: 14.5px; }
   .trust li::before { content: "✓"; color: var(--green); font-weight: 800; margin-right: 6px; }
+  .trust li.priv::before { content: none; }
+  .trust li.priv a { color: var(--sky); font-weight: 700; }
   .tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
   @media (max-width: 1180px) { .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 520px) { .tools { grid-template-columns: 1fr; } }
@@ -184,6 +186,7 @@ description: Free Chrome extension for Salesforce admins and developers. See who
       <a href="#guides">How-to guides</a>
       <a href="help/">Help</a>
       <a href="#faq">FAQ</a>
+      <a href="privacy">Privacy</a>
       <a class="cta-mini" href="https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Add to Chrome – free</a>
     </nav>
   </div>
@@ -196,7 +199,7 @@ description: Free Chrome extension for Salesforce admins and developers. See who
       <div>
         <h1>Salesforce superpowers, <em>right in your browser.</em></h1>
         <ul class="trust">
-          <li>Free</li><li>No server</li><li>No account</li><li>No connected app</li><li>Nothing installed in your org</li><li>Any org you're logged into</li>
+          <li>Free</li><li>No server</li><li>No account</li><li>No connected app</li><li>Nothing installed in your org</li><li>Any org you're logged into</li><li class="priv"><a href="privacy">🔒 How your data is protected →</a></li>
         </ul>
         <div class="tools">
         <a class="tool" href="#find"><div class="ico i-find">🔎</div><h2>Find</h2>

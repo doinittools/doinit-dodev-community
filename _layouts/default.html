@@ -47,6 +47,8 @@
   .head h1 { font-size: clamp(26px, 2.6vw, 42px); line-height: 1.18; letter-spacing: -.02em; margin: 0; font-weight: 800; max-width: 1100px; }
   .trust { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 14px 0 0; padding: 0; list-style: none; color: #c7d2fe; font-size: 14.5px; }
   .trust li::before { content: "✓"; color: var(--green); font-weight: 800; margin-right: 6px; }
+  .trust li.priv::before { content: none; }
+  .trust li.priv a { color: var(--sky); font-weight: 700; }
 
   /* Page: article + side panel */
   .page { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 48px; padding-top: 40px; padding-bottom: 72px; align-items: start; }
@@ -80,6 +82,7 @@
   .get { background: linear-gradient(160deg, var(--hero1), var(--hero2) 60%, var(--hero3)); color: #fff; border: 0; }
   .get b { display: block; font-size: 17px; margin: 0 0 4px; }
   .get p { margin: 0 0 14px; color: #c7d2fe; font-size: 14.5px; line-height: 1.5; }
+  .get .priv { display: block; margin: 12px 0 0; color: var(--sky); font-weight: 700; font-size: 14px; text-align: center; }
   .get .cta { width: 100%; justify-content: center; padding: 11px 16px; }
   .guides h2 { font-size: 15px; margin: 0 0 8px; color: var(--ink); }
   .guides ul { list-style: none; margin: 0; padding: 0; }
@@ -112,6 +115,7 @@
       <a href="{{ '/how-to/' | relative_url }}">How-to guides</a>
       <a href="{{ '/help/' | relative_url }}">Help</a>
       <a href="{{ home }}#faq">FAQ</a>
+      <a href="{{ '/privacy' | relative_url }}">Privacy</a>
       <a class="cta" href="{{ store }}">{{ dl }}Add to Chrome – free</a>
     </nav>
   </div>
@@ -121,7 +125,7 @@
   <div class="wrap">
     <div class="crumbs"><a href="{{ home }}">Home</a>{% if inGuides and page.url != '/how-to/' %} › <a href="{{ '/how-to/' | relative_url }}">How-to guides</a>{% endif %}</div>
     <h1>{{ title }}</h1>
-    <ul class="trust"><li>Free</li><li>No server</li><li>No account</li><li>No connected app</li><li>Nothing installed in your org</li></ul>
+    <ul class="trust"><li>Free</li><li>No server</li><li>No account</li><li>No connected app</li><li>Nothing installed in your org</li><li class="priv"><a href="{{ '/privacy' | relative_url }}">🔒 How your data is protected →</a></li></ul>
   </div>
 </div>
 
@@ -134,6 +138,7 @@
       <b>doDev – free Chrome extension</b>
       <p>Who has access and why, compare permissions, users and orgs, and query data without SOQL – right in your browser.</p>
       <a class="cta" href="{{ store }}">{{ dl }}Add to Chrome – free</a>
+      <a class="priv" href="{{ '/privacy' | relative_url }}">🔒 How your data is protected →</a>
     </div>
     <div class="box guides">
       <h2>📚 How-to guides</h2>
