@@ -24,7 +24,7 @@ description: Free Chrome extension for Salesforce admins and developers. See who
   a { color: var(--brand); text-decoration: none; }
   a:hover { text-decoration: underline; }
   img { max-width: 100%; display: block; }
-  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 1600px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 64px); }
   code, kbd { font-family: "JetBrains Mono", ui-monospace, monospace; }
 
   /* Top bar */
@@ -40,7 +40,11 @@ description: Free Chrome extension for Salesforce admins and developers. See who
   @media (max-width: 760px) { .nav a:not(.cta-mini) { display: none; } }
 
   /* Hero */
-  .hero { color: #fff; background: radial-gradient(1200px 500px at 80% -10%, rgba(56,189,248,.25), transparent 60%), radial-gradient(900px 500px at 0% 0%, rgba(99,102,241,.35), transparent 60%), linear-gradient(160deg, var(--hero1), var(--hero2) 55%, var(--hero3)); padding: 72px 0 0; overflow: hidden; }
+  .hero { color: #fff; background: radial-gradient(1200px 500px at 80% -10%, rgba(56,189,248,.25), transparent 60%), radial-gradient(900px 500px at 0% 0%, rgba(99,102,241,.35), transparent 60%), linear-gradient(160deg, var(--hero1), var(--hero2) 55%, var(--hero3)); padding: 64px 0 60px; overflow: hidden; }
+  .heroGrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 380px); gap: 40px 64px; align-items: center; }
+  .heroGrid .ctas { flex-direction: column; align-items: stretch; }
+  .heroGrid .ctas .btn { justify-content: center; }
+  @media (max-width: 900px) { .heroGrid { grid-template-columns: 1fr; } }
   .kicker { display: inline-flex; gap: 8px; align-items: center; padding: 6px 14px; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; font-size: 13.5px; color: #c7d2fe; background: rgba(255,255,255,.05); }
   .kicker b { color: var(--green); }
   .hero h1 { font-size: clamp(36px, 6vw, 64px); line-height: 1.05; letter-spacing: -.02em; margin: 22px 0 18px; font-weight: 800; }
@@ -56,10 +60,6 @@ description: Free Chrome extension for Salesforce admins and developers. See who
   .badges img { height: 22px; }
   .trust { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 22px 0 0; padding: 0; list-style: none; color: #c7d2fe; font-size: 14.5px; }
   .trust li::before { content: "✓"; color: var(--green); font-weight: 800; margin-right: 6px; }
-  .shot { margin: 48px auto -2px; max-width: 1060px; border-radius: 14px 14px 0 0; overflow: hidden; border: 1px solid rgba(255,255,255,.15); border-bottom: 0; box-shadow: 0 -10px 60px rgba(56,189,248,.25); background: #fff; }
-  .shot .bar { height: 30px; background: #e9eaf3; display: flex; align-items: center; gap: 7px; padding: 0 12px; }
-  .shot .bar i { width: 11px; height: 11px; border-radius: 50%; background: #c9cbe0; display: block; }
-  .shot .bar i:nth-child(1) { background: #f87171; } .shot .bar i:nth-child(2) { background: #fbbf24; } .shot .bar i:nth-child(3) { background: #34d399; }
 
   /* Ctrl + K band */
   .band { background: var(--soft); border-bottom: 1px solid var(--line); padding: 26px 0; }
@@ -95,7 +95,6 @@ description: Free Chrome extension for Salesforce admins and developers. See who
   .feat li::before { content: "✓"; position: absolute; left: 0; top: 0; width: 20px; height: 20px; border-radius: 50%; background: #dcfce7; color: #047857; font-size: 12px; font-weight: 800; display: grid; place-items: center; }
   .feat .img { border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); }
   .feat .img img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; }
-  .shot img { width: 100%; height: auto; aspect-ratio: 16 / 9.4; object-fit: cover; object-position: top left; }
   .tag { display: inline-block; font-size: 12.5px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #eef2ff; color: var(--brand); }
   .more { font-weight: 700; }
   @media (max-width: 860px) { .feat, .feat.flip { grid-template-columns: 1fr; gap: 22px; } .feat.flip .txt { order: 0; } }
@@ -177,17 +176,11 @@ description: Free Chrome extension for Salesforce admins and developers. See who
 <main>
   <!-- Hero: the Chrome Web Store first -->
   <div class="hero">
-    <div class="wrap">
+    <div class="wrap heroGrid">
+      <div>
       <span class="kicker"><b>Free</b> Chrome extension · for Salesforce admins &amp; developers</span>
       <h1>Salesforce superpowers,<br><em>right in your browser.</em></h1>
       <p class="lead">See who has access to anything – and why. Compare profiles, permission sets, users and whole orgs side by side. Query data without writing SOQL. Nothing to install in Salesforce.</p>
-      <div class="ctas">
-        <a class="btn btn-store" href="https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
-          Add to Chrome – it's free
-        </a>
-        <a class="btn btn-ghost" href="how-to/">Browse 20 how-to guides →</a>
-      </div>
       <div class="badges">
         <img src="https://img.shields.io/chrome-web-store/v/agcjfjpmlmfbdbgfohficnccnknimhbd?label=Chrome%20Web%20Store&amp;color=10b981&amp;style=for-the-badge" alt="Chrome Web Store version">
         <img src="https://img.shields.io/badge/price-free-38bdf8?style=for-the-badge" alt="Price: free">
@@ -196,22 +189,19 @@ description: Free Chrome extension for Salesforce admins and developers. See who
       <ul class="trust">
         <li>No server</li><li>No account</li><li>No connected app</li><li>Nothing installed in your org</li><li>Works with any org you're logged into</li>
       </ul>
-      <div class="shot">
-        <div class="bar"><i></i><i></i><i></i></div>
-        <img src="how-to/img/who-has-access-to-a-field.png" alt="doDev – Who Has Metadata Access: every user who can read or edit a Salesforce field, and the profile or permission set that gives it" width="1440" height="1000">
+      </div>
+      <div class="ctas">
+        <a class="btn btn-store" href="https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Add to Chrome – it's free
+        </a>
+        <a class="btn btn-ghost" href="how-to/">Browse 20 how-to guides →</a>
       </div>
     </div>
   </div>
 
-  <div class="band">
-    <div class="wrap">
-      <span>Press</span> <kbd>Ctrl</kbd> <span>+</span> <kbd>K</kbd>
-      <span>to open any <b>object, field, flow, Apex class, profile or permission set</b> – one page each.</span>
-    </div>
-  </div>
-
-  <!-- Four toolboxes -->
-  <section id="features">
+  <!-- Four toolboxes, straight under the hero -->
+  <section id="features" style="padding-top: 56px">
     <div class="wrap">
       <div class="center">
         <div class="eyebrow">Everything in one extension</div>
@@ -230,6 +220,13 @@ description: Free Chrome extension for Salesforce admins and developers. See who
       </div>
     </div>
   </section>
+
+  <div class="band" style="border-top: 1px solid var(--line)">
+    <div class="wrap">
+      <span>Press</span> <kbd>Ctrl</kbd> <span>+</span> <kbd>K</kbd>
+      <span>to open any <b>object, field, flow, Apex class, profile or permission set</b> – one page each.</span>
+    </div>
+  </div>
 
   <!-- Feature rows with real screenshots -->
   <section style="padding-top: 0">
