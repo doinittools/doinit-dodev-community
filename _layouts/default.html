@@ -10,8 +10,7 @@
 <style>
   /* Guide and privacy text */
   .doc { max-width: 1000px; font-size: 16.5px; line-height: 1.7; }
-  .doc > h1:first-child { display: none; }
-  .doc > :nth-child(2) { margin-top: 0; }
+  .doc > h1:first-child { font-size: clamp(26px, 2.2vw, 34px); line-height: 1.2; letter-spacing: -.02em; color: var(--ink); margin: 6px 0 16px; }
   .doc h2 { font-size: 25px; line-height: 1.25; color: var(--ink); letter-spacing: -.01em; margin: 36px 0 12px; padding-top: 20px; border-top: 1px solid var(--line); }
   .doc h3 { font-size: 19px; color: var(--ink); margin: 26px 0 8px; }
   .doc strong { color: var(--ink); }
@@ -33,15 +32,8 @@
 </style>
 </head>
 <body>
-{%- comment -%} The page's first heading goes in the banner; the article hides its own copy {%- endcomment -%}
-{%- assign parts = content | split: '</h1>' -%}
-{%- if parts.size > 1 -%}{%- assign title = parts[0] | split: '>' | last -%}{%- else -%}{%- assign title = page.title -%}{%- endif -%}
 
 {% include topbar.html %}
-
-<div class="hero">
-  <div class="wrap"><h1>{{ title }}</h1></div>
-</div>
 
 <main class="wrap pageGrid">
   <article class="mainCol doc">

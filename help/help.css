@@ -6,6 +6,8 @@ code { background: var(--soft); border: 1px solid var(--border); padding: 1px 5p
 kbd { border: 1px solid #c7c9f5; border-bottom-width: 2px; background: #fff; color: var(--brand); padding: 0 6px; border-radius: 5px; }
 body { font-size: 15.5px; line-height: 1.65; }
 
+.hTitle { font-size: clamp(26px, 2.2vw, 34px); line-height: 1.2; letter-spacing: -.02em; color: var(--ink); margin: 6px 0 14px; }
+
 /* Search, above the help */
 .hSearchRow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 0 0 14px; }
 .hSearch { flex: 1 1 360px; max-width: 640px; height: 42px; padding: 0 18px; border: 1px solid var(--border); border-radius: 21px; background: #fff; color: var(--text); font: inherit; font-size: 15px; box-shadow: 0 2px 8px rgba(15,13,46,.05); }
