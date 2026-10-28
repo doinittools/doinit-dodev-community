@@ -30,6 +30,7 @@ Short answers to questions Salesforce admins and developers ask every day – wh
 - [How to compare Apex and metadata between Salesforce sandbox and production](compare-apex-and-metadata-between-orgs)
 - [How to compare a Salesforce object between two orgs](compare-an-object-between-orgs)
 - [How to compare settings between two Salesforce orgs](compare-org-settings)
+- [How to compare two Salesforce records – field by field, even between orgs](compare-two-salesforce-records)
 
 ## Salesforce data
 

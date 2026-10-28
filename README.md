@@ -19,7 +19,7 @@
 | | Tool | What you get |
 |:-:|---|---|
 | 🔎 | [**Find**](https://doinittools.github.io/doinit-dodev-community/#find) | Who has access to a field, object or permission – and why · Who can open a record – and why · Where a field, class or flow is used · Any metadata, one page each |
-| ⚖️ | [**Compare**](https://doinittools.github.io/doinit-dodev-community/#compare) | Profiles and permission sets · Two users – in one org or two · Apex, flows and metadata between orgs · Objects and org settings |
+| ⚖️ | [**Compare**](https://doinittools.github.io/doinit-dodev-community/#compare) | Profiles and permission sets · Two users – in one org or two · Apex, flows and metadata between orgs · Objects and org settings · Records, field by field |
 | 🗂️ | [**Data**](https://doinittools.github.io/doinit-dodev-community/#data) | Query without writing SOQL · Start from a list view or a report · Export to Excel, CSV or JSON · Import, update or delete from CSV |
 | ⏱️ | [**Monitor**](https://doinittools.github.io/doinit-dodev-community/#monitor) | Scheduled and batch Apex jobs · Failures in the last 7 days · What runs next · Any job by its Id or class |
 
@@ -45,6 +45,7 @@
 - [Compare Apex and metadata between orgs](https://doinittools.github.io/doinit-dodev-community/how-to/compare-apex-and-metadata-between-orgs)
 - [Compare an object between orgs](https://doinittools.github.io/doinit-dodev-community/how-to/compare-an-object-between-orgs)
 - [Compare org settings](https://doinittools.github.io/doinit-dodev-community/how-to/compare-org-settings)
+- [Compare two records](https://doinittools.github.io/doinit-dodev-community/how-to/compare-two-salesforce-records)
 - [Query data without SOQL](https://doinittools.github.io/doinit-dodev-community/how-to/query-salesforce-data-without-soql)
 - [Import, update or delete from CSV](https://doinittools.github.io/doinit-dodev-community/how-to/import-update-delete-records-from-csv)
 - [Monitor scheduled Apex jobs](https://doinittools.github.io/doinit-dodev-community/how-to/monitor-scheduled-apex-jobs)

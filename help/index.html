@@ -31,7 +31,7 @@ layout: null
     <h1 class="hTitle">doDev Help</h1>
     <div class="hSearchRow">
       <input id="hSearch" class="hSearch" type="search" placeholder="Search the help – e.g. columns, record access, SOQL" aria-label="Search the help">
-      <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.3.6</span>
+      <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.3.7</span>
     </div>
     <div class="hLayout">
     <nav class="hToc" aria-label="Contents">
@@ -53,6 +53,7 @@ layout: null
       <a href="#persona">Role &amp; Profile Members</a>
       <a href="#code">Compare Code &amp; Metadata</a>
       <a href="#object">Compare Objects</a>
+      <a href="#recs">Compare Records</a>
       <a href="#org">Compare Org Settings</a>
       <div class="hTocGroup">Monitor</div>
       <a href="#jobs">Jobs</a>
@@ -112,6 +113,10 @@ layout: null
           <li><b>☷ Columns:</b> on people tables (Who Has Metadata Access, Who Has Record Access), uncheck the columns you don't need, or add <b>any User field</b> under <i>User fields</i> – type to find it (e.g. Email, Department, Manager); its values are read for everyone listed and go into the CSV too. Uncheck an added field to remove it. Your choice is kept for that tool; <i>Show all columns</i> shows the basic columns again.</li>
           <li><b>Exports:</b> the Find and Compare tools' <b>Export ▾</b> has <i>Download CSV</i> and <i>Download Excel (.xlsx)</i>. In Data Explorer, <b>CSV ▾</b> / <b>JSON ▾</b> ask first: <b>⧉ Copy</b> puts the content on the clipboard (CSV can also be copied for Excel), <b>⬇ Download</b> saves the file.</li>
           <li><b>⌕</b> buttons open the matching query in a new Data Explorer tab. <b>⧉</b> copies a value.</li>
+          <li><b>Sort:</b> click a column header – ▲ ascending, ▼ descending, a third click back to the first order. Tables with a <i>Name</i> column start sorted by name; dates sort by date and counts by number.</li>
+          <li><b>Record Ids</b> are links in every tool: a click asks <b>👁 View here</b> (the record in Data Explorer) or <b>↗ View in Salesforce</b>. Ctrl / ⌘ + click goes straight to Salesforce.</li>
+          <li><b>Results as they load:</b> Compare Users, Compare Permissions, the org compares and Where Is It Used show each part as soon as it is read, with a progress bar under the results header (<i>Comparing… 60%</i>). Counts may still change until it is done; <b>■ Stop</b> keeps what has loaded and marks the rest.</li>
+          <li><b>Errors in plain words:</b> when Salesforce refuses something, the message says what happened and what to do; the original Salesforce text is one click away.</li>
         </ul>
       </section>
 
@@ -137,11 +142,16 @@ layout: null
         <h3>Results</h3>
         <ul>
           <li>Click a column header to sort, drag its edge to resize, hover a cell or header for <b>⧉</b> copy.</li>
+          <li>Checkbox fields show <b>true</b> or <b>false</b>.</li>
           <li><b>Filter these results</b> narrows the rows as you type; the count next to it then says how many match, for example <i>12 of 2,000 Accounts match the filter</i>.</li>
           <li>Above the results: the filter box, then <b>Related ▾</b> (when the query has related lists) – check one or several of <i>With …</i> / <i>Without …</i> to narrow by related records. On the right: <b>Excel ▾</b> (copy for Excel or download .xlsx), <b>CSV ▾</b> and <b>JSON ▾</b> (copy or download). While you filter, the line under the editor says how many match.</li>
           <li>One record opens as a single table – <b>Field</b>, <b>API name</b>, <b>Value</b>, <b>Field type</b> – all fields A–Z, with <i>Find a field…</i> and <i>Show empty fields</i>. Formula fields are marked <b>ƒ</b>; hover the type or value to see the formula. Related lists in the query are chips at the top with their counts – click one to open its records right there.</li>
+          <li><b>👁 View here</b> on a record Id (or opening doDev from a Salesforce record page) shows the record on its own, without the query editor, and <b>Quick links</b> on the right: <i>Write a new query</i>, <i>Edit this query</i>, <i>Who has access to this record</i>, the object's page, all its records, where the object is used, and the record and Object Manager in Salesforce.</li>
+          <li><b>The way back:</b> each record you open with View here is a step in a trail at the top (<i>‹ Back · Account query › GenePoint › Owner</i>) – click any step to go back to it as it was.</li>
           <li>To change many records at once, use <a href="#import">Data Import</a> › <b>✎ Mass update</b>.</li>
           <li><b>CSV ▾</b> and <b>JSON ▾</b> copy or download what is loaded (the filters apply). <i>Include deleted</i> also returns records in the Recycle Bin.</li>
+          <li><b>Tooling API</b> (next to <i>Include deleted</i>): send the query to the Tooling API instead of the data API – for objects both have, such as <code>PermissionSetTabSetting</code>. Objects only one of them has always go to that one.</li>
+          <li><b>A new query:</b> click <b>Data Explorer</b> in the tool row while it is on screen. A blank Data Explorer tab that is already open is used; otherwise a new one opens.</li>
         </ul>
       </section>
 
@@ -205,10 +215,12 @@ layout: null
         <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/where-is-a-field-used">Where a field is used before you change or delete it</a></p>
         <ol>
           <li>Choose the type (field, object, profile, role, group, permission set, Apex class, label, custom permission, record type, or any text) and the name or Id.</li>
-          <li>In <b>What to search</b> (right), check the places to search. The <i>(slower)</i> ones – flows, Lightning pages and apps, quick actions, validation rules, reports, Experience Cloud sites, OmniStudio, prompt templates and Agentforce – need one call per item, so they start unchecked and <b>up to 3</b> can be checked at a time. <i>All</i> checks the quick places only.</li>
+          <li>In <b>What to search</b> (right), check the places to search. The <i>(slower)</i> ones need one call per item: <b>flows and validation rules start checked</b>; Lightning pages and apps, quick actions, reports, Experience Cloud sites, OmniStudio, prompt templates and Agentforce start unchecked. <b>Up to 3</b> slower places can be checked at a time. <i>All</i> checks the quick places only.</li>
           <li>Click <b>Find references</b>.</li>
         </ol>
         <ul>
+          <li>Results show place by place as they are found, with the progress bar; <b>■ Stop</b> keeps what was found.</li>
+          <li><b>Not searched</b>, at the top of the results, names every place that was left out, with <i>Choose places to search</i> – so "nothing found" is never read as "not used anywhere".</li>
           <li><b>Who and what uses it</b> heads the results: the item and facts such as records with a value.</li>
           <li>The tree lists places (e.g. Code › Apex classes, Apex test classes); each reference shows its line with the match highlighted, marked <b>exact</b> or <b>name only</b>. <b>View ›</b> opens the component.</li>
           <li>Checked another place after the search? <b>Search … too</b> adds just those.</li>
@@ -224,6 +236,8 @@ layout: null
           <li><b>Code</b> shows with line numbers and colours. <b>Find in file</b> (or Ctrl+F inside it) marks every match; Enter / Shift+Enter step through them.</li>
           <li><b>⇄ Compare with ▾</b> → an org shows the same component from that org (one org at a time – picking another replaces it; <b>✕ Stop comparing</b> goes back): the details become a side-by-side table and each tab lists only the differences (uncheck <i>Only differences</i> to see all). Code becomes a side-by-side diff.</li>
           <li>For a <b>profile, permission set or permission set group</b>, <b>⇄ Compare with ▾</b> → an org opens <a href="#ps">Compare Permissions</a> straight away with the same item in both orgs: every permission – objects, fields, system and app permissions, Apex, pages, tabs and more – side by side.</li>
+          <li>Each page starts with its key details – the label above each value – and its tabs. Every table on a page sorts by its headers (Name first).</li>
+          <li><b>A user's page:</b> profile, role, email, last login and created at the top; everything else (status, role path, licence, user type, alias, time zone…) is on the <b>Details</b> tab, in groups. <b>Permission sets</b> lists the profile, permission sets, groups and licences with <i>Assigned on</i> and <i>Assigned by</i> from the Setup Audit Trail – older than its 180 days shows ≈ the last change.</li>
           <li><b>👤 Log in as</b> (users) opens Salesforce's own login-as, when you are allowed to.</li>
           <li>A user's <b>Access summary</b> tab lists everything they can do – system permissions, objects (Read · Create · Edit · Delete · View All · Modify All), fields, tabs, Apex classes, Visualforce pages, custom permissions, apps… – each with the profile, permission set or group that grants it. It opens on <b>Objects</b> – every object with its level, in sections: the key Sales / Service Cloud objects first, then your custom objects, then all other standard objects and each managed package (these two folded until you click them, or opened by a search or filter); filter by level (e.g. only objects with <i>View All</i> and <i>Modify All</i>) and use <i>Fields ›</i> to jump to an object's fields. <b>Fields</b> lists them grouped by object (filter by Read / Edit); <i>Granted by</i> (folded at first) shows what each profile, permission set or group gives. One search covers the tree and the table.</li>
           <li>Components from a <b>managed package</b> show its namespace as a badge after the name in every search result (e.g. <i>LeadTrigger</i> <code>pkg</code>), so two with the same name are easy to tell apart.</li>
@@ -246,7 +260,7 @@ layout: null
           <li>Click <b>Compare</b>.</li>
         </ol>
         <ul>
-          <li>The counts – differences, only in each, changed in both, matched in both – filter the results when clicked.</li>
+          <li>The counts – differences, only in each, changed in both, matched in both – filter the results when clicked. When both sides have the same name (the same permission set in two orgs), the counts name the orgs: <i>only in uat</i>.</li>
           <li>The tree lists the sections; click one to see just it. Sections start collapsed; <i>Expand all</i> opens them.</li>
           <li><b>Objects</b> and <b>Fields</b>: one row per object (or field), a column per permission. Comparing two: a green ✓ is only in the first, a red ✓ only in the second, a grey ✓ in both, and an empty cell in neither; ≠ marks what differs. Each object shows how many of its fields differ – click it to open the Fields section on that object. <b>Only differences</b> (the default) shows just what differs; <b>Everything provisioned</b> shows all access either side has.</li>
           <li><b>Export</b>: Download CSV or Excel, or a deployable <i>gap permission set</i> that grants one side what the other has.</li>
@@ -282,11 +296,29 @@ layout: null
         <p>Type the object, pick two orgs and click <b>Compare object</b>. You get object settings, every field attribute, picklist values (also per record type), record types, validation rules, triggers, record-triggered flows, layouts and Lightning pages, with the differences highlighted. On the left, a tree lists <i>All differences</i>, then each section with its changed items, and the sections that are the same in every org under <i>Identical in all orgs</i>. Click a section or an item to see just that on the right; the filter above narrows the tree.</p>
       </section>
 
+      <section id="recs">
+        <h2>Compare Records</h2>
+        <p class="hAsk">How do two records differ – their fields and their child records?</p>
+        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-two-salesforce-records">Compare two Salesforce records, field by field</a></p>
+        <ol>
+          <li>For each record, pick its org and paste its Id (15 or 18 characters). The records can be in one org or in several – for example the same account in a sandbox and in production. <b>⇄</b> swaps the first two.</li>
+          <li><b>+ Add a record</b> adds a third, fourth and fifth (up to 5); <b>×</b> takes one away again. All of them must be records of the same object.</li>
+          <li>Click <b>Compare records</b>.</li>
+        </ol>
+        <ul>
+          <li>One line at the top: the records' names, the filter box and two counts – <b>differences</b> and <b>the same</b> – that pick the fields shown.</li>
+          <li><b>Fields</b>: every field – label, API name, then one column per record. Only the values that differ are highlighted: with two records both, with more the ones that differ from what most of them have. A field one org doesn't have says so.</li>
+          <li><b>Lookups</b> (Owner, Parent Account…) are compared by the name of the record they point to, not its Id – Ids differ between orgs. Hover one for its Id; a click offers View here / View in Salesforce.</li>
+          <li><b>System fields</b> (Id, created and last modified, Photo URL…) always differ, so they are kept apart – check <i>System fields</i> to see them.</li>
+          <li><b>Child records</b>: each child object (contacts, cases, history, your custom objects…) with the field it points through and how many records each record has. A count opens those records in Data Explorer. <i>Also child objects with no records</i> lists the empty ones too.</li>
+        </ul>
+      </section>
+
       <section id="org">
         <h2>Compare Org Settings</h2>
         <p class="hAsk">How are two orgs set up differently?</p>
         <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-org-settings">Compare settings between two orgs</a></p>
-        <p>Pick two orgs and click <b>Compare orgs</b>: org-wide defaults, role hierarchy, password and session policies, trusted IP ranges, connected app policies and organization settings. Values that differ from the first org are highlighted. On the left, a tree lists <i>All differences</i>, then each section with its changed items, and the sections that are the same in every org under <i>Identical in all orgs</i>. Click a section or an item to see just that on the right; the filter above narrows the tree.</p>
+        <p>Pick two orgs and click <b>Compare orgs</b>: org-wide defaults, role hierarchy, password and session policies, trusted IP ranges, connected app policies and organization settings. Values that differ from the first org are highlighted. <b>Org-Wide Defaults</b> lists only real sharing changes (e.g. Private → Read/Write); objects that exist in only one org are listed apart, under <i>Objects in only one org</i>. On the left, a tree lists <i>All differences</i>, then each section with its changed items, and the sections that are the same in every org under <i>Identical in all orgs</i>. Click a section or an item to see just that on the right; the filter above narrows the tree.</p>
       </section>
 
       <section id="jobs">
@@ -354,7 +386,7 @@ layout: null
           <dt>Salesforce is busy (too many requests)</dt>
           <dd>doDev waits and retries reads by itself, and never sends more than a few requests at once. Data Import writes are never retried, so nothing is created twice.</dd>
           <dt>A tool shows something unexpected</dt>
-          <dd>Open the log (terminal icon) for details, and <a href="https://github.com/doinittools/doinit-dodev-community/issues" target="_blank" rel="noopener">report it</a> – please without any Salesforce data.</dd>
+          <dd>Open the log (terminal icon) for details, and <a href="../support">report it</a> – please without any Salesforce data.</dd>
         </dl>
       </section>
 
@@ -371,7 +403,7 @@ layout: null
       <section id="about">
         <h2>About</h2>
         <p>doDev – Admin &amp; Dev Toolkit for Salesforce. Free to use. Copyright © 2026 doInit Tools. All rights reserved.</p>
-        <p>Questions, bugs or ideas: <a href="https://github.com/doinittools/doinit-dodev-community/issues" target="_blank" rel="noopener">community page</a>, or email <a href="mailto:doinittools@gmail.com">doinittools@gmail.com</a>.</p>
+        <p>Questions, bugs or ideas: the <a href="../support">support page</a> (report a bug, request a feature), the <a href="../">community site</a>, or email <a href="mailto:doinittools@gmail.com">doinittools@gmail.com</a>.</p>
         <p class="hNote">Not affiliated with or endorsed by Salesforce, Inc. Salesforce is a trademark of Salesforce, Inc.</p>
       </section>
     </main>
