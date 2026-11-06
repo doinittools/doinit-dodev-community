@@ -31,14 +31,11 @@ layout: null
     <h1 class="hTitle">doDev Help</h1>
     <div class="hSearchRow">
       <input id="hSearch" class="hSearch" type="search" placeholder="Search the help – e.g. columns, record access, SOQL" aria-label="Search the help">
-      <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.4.2</span>
+      <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.4.3</span>
     </div>
     <div class="hLayout">
     <nav class="hToc" aria-label="Contents">
       <a href="#start">Getting started</a>
-      <a href="#workspace">The workspace</a>
-      <a href="#inputs">Inputs</a>
-      <a href="#results">Results</a>
       <div class="hTocGroup">Data</div>
       <a href="#data">Data Explorer</a>
       <a href="#import">Data Import</a>
@@ -69,368 +66,359 @@ layout: null
       <p id="hNoMatch" class="hNoMatch" hidden>Nothing in the help matches that. Try another word.</p>
 
       <section id="start">
-        <h2>Getting started</h2>
-        <p>doDev helps Salesforce admins and developers find any metadata, see who can access what and why, compare users, permissions and orgs, query data without writing SOQL, and keep an eye on scheduled jobs. It runs in your browser with the Salesforce login you already have – nothing to install in Salesforce, no connected app.</p>
-        <ol>
-          <li>Open a Salesforce tab and log in as usual.</li>
-          <li>Click the doDev icon in the Chrome toolbar (pin it from the puzzle-piece menu so it is always there). The workspace opens in a new tab, connected to that org.</li>
-          <li>Pick a section at the top – <b>Data</b>, <b>Find</b>, <b>Compare</b> or <b>Monitor</b> – and a tool.</li>
-        </ol>
-        <p><b>From a record page:</b> open doDev while you look at a record, user, profile, Apex class and so on, and the tool you open fills its inputs from it (it never runs on its own – you click Run).</p>
-        <p><b>Two orgs:</b> to compare orgs (e.g. a sandbox and production), log into both in the same browser. Their names then appear in the org pickers.</p>
-        <p class="hNote">doDev only reads from Salesforce, with one exception: <b>Data Import</b> creates, updates or deletes the records you confirm – nothing else changes anything.</p>
-      </section>
-
-      <section id="workspace">
-        <h2>The workspace</h2>
-        <ul>
-          <li><b>Org</b> (top right): the org every tool works in. It starts with the org you launched doDev from, marked <i>(launch org)</i> – also after a reload – and lists every other org you are logged into in this browser. Switching it reloads the open tools in that org (you are asked first – their results are cleared); compare tools use it as the first org.</li>
-          <li><b>Sections:</b> Data · Find · Compare · Monitor. A section shows its tools as tiles (each says what question it answers) and on one line under the top bar. A ● on a section means something in it is still running.</li>
-          <li><b>Several at once:</b> every tool keeps its work while you switch, so a query and a comparison can run side by side. <b>+</b> opens another copy, <b>×</b> closes one, double-click a tool's label to rename it, and <b>Open tabs (n) ▾</b> lists everything open – each by what it is about (e.g. what you searched), with its tool underneath.</li>
-          <li><b>Search box</b> (top, Ctrl+K): type any metadata or user – an object, field, flow, Apex class, LWC, profile, label – or a tool. <b>All ▾</b> narrows it to one type. Results show as they arrive, in this order: objects, permission sets, profiles, permission set groups, then the rest – custom fields last, unless you type a field's full name. Clicking into the empty box shows your recent searches for this org. A result opens its <a href="#inspect">Find Any Metadata</a> page.</li>
-          <li><b>Footer</b> (bottom of every screen): Help, Report an issue, Community &amp; support, Privacy policy and the contact email.</li>
-          <li><b>Dates and times</b> show in your Salesforce time zone (your Salesforce settings → Language &amp; Time Zone), as Salesforce shows them.</li>
-          <li><b>↺ Restore last session</b> reopens the tools you had open with their last inputs (never their results).</li>
+        <div class="hHead"><div class="hIcon gen">▶</div><div><h2>Getting started</h2><p class="hAsk">Salesforce admin and developer tools, with the login you already have.</p></div></div>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Log into Salesforce.</li>
+            <li>Click the doDev icon in Chrome's toolbar.</li>
+            <li>Pick a section – Data, Find, Compare, Monitor – and a tool.</li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Good to know</div><ul>
+            <li>Opened on a record or user, the tool fills itself in.</li>
+            <li>Log into two orgs to compare them.</li>
+            <li>Nothing to install in Salesforce.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li><kbd>Ctrl</kbd>+<kbd>K</kbd> searches any metadata, user or tool.</li>
+          <li>Tools run side by side – <span class="ui">+</span> opens another copy, <span class="ui">Open tabs ▾</span> lists them.</li>
+          <li>Record Ids are links: <span class="ui">👁 View here</span> or <span class="ui">↗ View in Salesforce</span>.</li>
+          <li><span class="ui">■ Stop</span> keeps what has loaded. <span class="ui">↺ Restore last session</span> reopens your tools.</li>
         </ul>
-      </section>
-
-      <section id="inputs">
-        <h2>Inputs – the same in every tool</h2>
-        <ul>
-          <li>One box with the <b>org on its left</b>, any type choice next to it, then the search. The placeholder says what to enter.</li>
-          <li>Options such as <i>Include inactive users</i> and the <b>log</b> button (terminal icon) sit on the caption line, top right above <b>Run</b>.</li>
-          <li><b>■ Stop</b> ends a run at once. If something goes wrong, the message appears under the inputs with <b>↻ Try again</b> and <b>⟲ Restart this tool</b>; the log keeps the details.</li>
-          <li><b>Messages</b> show at the top of the page: red for a warning or error (for example <i>Choose an object first</i>), green when something worked (<i>Copied</i>, <i>Saved</i>).</li>
-          <li>Before your first run each tool shows <b>Recent</b> runs (one click fills the inputs, ▶ runs again) and <b>What you'll get</b>.</li>
-        </ul>
-      </section>
-
-      <section id="results">
-        <h2>Results – the same layout in every Find and Compare tool</h2>
-        <ul>
-          <li><b>One card.</b> Its first row has the title or count on the left and, on the right, the <b>search box</b> and the buttons (CSV, query, chart, columns).</li>
-          <li><b>Left: a tree.</b> <i>Everyone</i> / <i>All differences</i> / <i>Everywhere</i> on top, then groups that fold, each entry with its count. Click an entry to see just that on the right; the picked entry is outlined.</li>
-          <li><b>☷ Columns:</b> on people tables (Who Has Metadata Access, Who Has Record Access), uncheck the columns you don't need, or add <b>any User field</b> under <i>User fields</i> – type to find it (e.g. Email, Department, Manager); its values are read for everyone listed and go into the CSV too. Uncheck an added field to remove it. Your choice is kept for that tool; <i>Show all columns</i> shows the basic columns again.</li>
-          <li><b>Exports:</b> the Find and Compare tools' <b>Export ▾</b> has <i>Download CSV</i> and <i>Download Excel (.xlsx)</i>. In Data Explorer, <b>CSV ▾</b> / <b>JSON ▾</b> ask first: <b>⧉ Copy</b> puts the content on the clipboard (CSV can also be copied for Excel), <b>⬇ Download</b> saves the file.</li>
-          <li><b>⌕</b> buttons open the matching query in a new Data Explorer tab. <b>⧉</b> copies a value.</li>
-          <li><b>Sort:</b> click a column header – ▲ ascending, ▼ descending, a third click back to the first order. Tables with a <i>Name</i> column start sorted by name; dates sort by date and counts by number.</li>
-          <li><b>Record Ids</b> are links in every tool: a click asks <b>👁 View here</b> (the record in Data Explorer) or <b>↗ View in Salesforce</b>. Ctrl / ⌘ + click goes straight to Salesforce.</li>
-          <li><b>Results as they load:</b> Compare Users, Compare Permissions, the org compares and Where Is It Used show each part as soon as it is read, with a progress bar under the results header (<i>Comparing… 60%</i>). Counts may still change until it is done; <b>■ Stop</b> keeps what has loaded and marks the rest.</li>
-          <li><b>Errors in plain words:</b> when Salesforce refuses something, the message says what happened and what to do; the original Salesforce text is one click away.</li>
-        </ul>
+        <p class="hNote">doDev only reads. The one exception is <b>Data Import</b>, which changes only the records you confirm.</p>
       </section>
 
       <section id="data">
-        <h2>Data Explorer</h2>
-        <p class="hAsk">Query records with SOQL, or search text across objects with SOSL.</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/query-salesforce-data-without-soql">Query Salesforce data without writing SOQL</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>A user says a record "looks wrong": open it with <b>👁 View here</b>, check <b>Type ▾</b> → Formula and click <b>View formula</b> to see how a value is worked out.</li><li>A save fails with a validation error: the <b>Validation rules</b> column shows which rules use each field – click the count to read the rule and its error message.</li><li>Someone asks "who changed this and when?": <b>History</b> → <b>View</b> lists each change with who, when, the old and the new value.</li><li>You have a list of Ids from an email or a spreadsheet: <b>Paste Ids or names</b> writes the query for you (leave <i>First row is a header</i> checked when the list starts with a column name).</li></ul></div>
-        <h3>Write a query</h3>
-        <ol>
-          <li>Type an object in the object box (top left) and pick it – a starter query appears – or type SOQL straight into the editor.</li>
-          <li>As you type, suggestions offer objects, fields, related fields (<code>Owner.</code>), related lists, picklist values, <b>record types</b> (after <code>RecordType.DeveloperName =</code>, <code>RecordType.Name =</code> or <code>RecordTypeId =</code>) and date literals – including <b>relative dates</b>: last / next N days, weeks, months, quarters and years, <i>N … ago</i> and fiscal periods (type a number, e.g. <code>last_n_months:9</code>). <b>Ctrl+Space</b> shows them; <b>Enter</b> or <b>Tab</b> picks one while you are completing a word or right after an operator (<code>=</code>, <code>IN (</code>), otherwise Enter starts a new line. A keyword you pick (WHERE, AND…) gets its space; in <code>IN (…)</code> each value picked is followed by a comma and the next values are offered.</li>
-          <li>Click <b>▶ Run</b> or press <b>Ctrl+Enter</b>. Nothing runs until you do.</li>
-        </ol>
-        <h3>Pick fields and relationships</h3>
-        <p><b>☰ Fields &amp; relationships…</b> opens a picker: the tree on the left has <i>Fields of &lt;object&gt;</i> (standard and custom), <i>Parent records (lookups)</i> and <i>Related lists</i>; the right side lists the fields of what you pick. Each side has its own search: the box above the tree finds lookups and related lists, the box above the fields filters that field list. A <code>FIELDS(ALL)</code>, <code>FIELDS(STANDARD)</code> or <code>FIELDS(CUSTOM)</code> in your query shows its fields checked and stays as written; uncheck one of them and the query lists the fields you kept instead.</p>
-        <ul>
-          <li>A lookup (e.g. Owner) shows its fields, and under them <i>Go further</i> – its own lookups (e.g. Owner › Manager), up to 5 levels.</li>
-          <li>A related list shows its fields straight away; check any field to add the list to the query, uncheck them all to leave it out. Related lists already in your query start checked.</li>
-          <li><b>Apply</b> writes the query; <b>▶ Apply &amp; run</b> also runs it. Your own subqueries and filters are kept.</li>
+        <div class="hHead"><div class="hIcon">▦</div><div><h2>Data Explorer</h2><p class="hAsk">Query records with SOQL, or search text with SOSL.</p></div><div class="hChips"><span class="hChip">Data</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/query-salesforce-data-without-soql">Query Salesforce data without writing SOQL</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Pick an object – a starter query appears.</li>
+            <li>Type – suggestions offer fields, values and dates.</li>
+            <li><span class="ui">▶ Run</span> or <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.</li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>A record looks wrong – <span class="ui">View formula</span> shows how a value is worked out.</li>
+            <li>A save fails – the <b>Validation rules</b> column shows the rule.</li>
+            <li>"Who changed this?" – <b>History</b> shows who, when, old and new.</li>
+            <li>You have a list of Ids – <span class="ui">Paste Ids or names</span>.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li>200 rows a page (up to 2,000). Filter and downloads cover every row.</li>
+          <li>100,000+ rows: <span class="ui">Download all as CSV</span> or <span class="ui">Load here</span>.</li>
+          <li>To change many records, use <a href="#import">Data Import</a>.</li>
         </ul>
-        <h3>Other ways to start</h3>
-        <p><b>Start a query</b>: from a list view, from a report, from a record, or <b>paste Ids or names</b> – each writes the query into the editor. <b>✨ Query Templates</b> has ready-made queries for the object and an admin library. <b>History</b> keeps your last 100 queries; <b>Saved</b> keeps the ones you name – <b>☆ Save this query</b> at its top adds the one in the editor; <i>⬇ Export</i> / <i>⬆ Import</i> share them as a file. Under the editor: <b>▶ Run</b>, <b>☰ Fields &amp; relationships…</b> and <b>⧉ Copy SOQL</b>. To count records, use <b>Templates</b> › <i>Record count</i> (add a WHERE to count only some). Object suggestions (in the Object box and after <code>FROM</code>) put the exact API name or label first, then names that start with what you typed. <b>SOSL</b> searches text across several objects: it starts with one object (the one you are working with, or Account) – <i>+ Add object</i> adds more.</p>
-        <h3>Results</h3>
-        <ul>
-          <li>Click a column header to sort, drag its edge to resize, hover a cell or header for <b>⧉</b> copy.</li>
-          <li>Checkbox fields show <b>true</b> or <b>false</b>.</li>
-          <li>Tables of several records show the first <b>200 columns</b> – a note above says how many there are; Excel, CSV and JSON downloads have them all.</li>
-          <li><b>Big results:</b> every row loads, several batches at once, with the count moving as they arrive. The table shows a <b>page</b> at a time (200 rows; pick 50 to 2,000 under <i>Rows per page</i>) – the filter, sort, Excel, CSV and JSON cover every row loaded.</li>
-          <li><b>Very many narrow rows</b> (over about 400,000 rows of a few fields): the query switches to <b>Bulk API 2.0</b> – a few API calls in all. A line above the table says so, with the time so far: Salesforce prepares the rows first, then they arrive in pieces with a progress bar. Rows with many fields always load batch by batch – for them that is much faster. So do queries with related lists, totals (COUNT, SUM…), GROUP BY or OFFSET.</li>
-          <li><b>Very big results</b> (100,000 rows or more, or more than fit in the browser – wide rows take more room): the first rows show, and you choose <b>Download all as CSV</b> (every row straight to a file you pick, through Bulk API 2.0 – nothing is kept in the page) or <b>Load here</b> (as many rows as fit, to browse, filter and sort).</li>
-          <li><b>Filter these results</b> narrows the rows as you type; the count next to it then says how many match, for example <i>12 of 2,000 Accounts match the filter</i>.</li>
-          <li>Above the results: the filter box, then <b>Related ▾</b> (when the query has related lists) – check one or several of <i>With …</i> / <i>Without …</i> to narrow by related records. On the right: <b>Excel ▾</b> (copy for Excel or download .xlsx), <b>CSV ▾</b> and <b>JSON ▾</b> (copy or download). While you filter, the line under the editor says how many match.</li>
-          <li>One record opens as a single table – <b>Field</b>, <b>API name</b>, <b>Value</b>, <b>Field type</b>, <b>Validation rules</b> (how many use the field – click to read them) and <b>History</b> (<i>View</i> lists who changed it, when, and the old and new value) – all fields A–Z; click a header to sort. One line above it: the record's name, <b>⧉ Copy Id</b>, <b>↗ Salesforce</b>, <i>Find a field…</i>, <b>Type ▾</b> (show only some kinds of field) and <i>Show empty fields</i>; related lists in the query are chips on the next line, with their counts – click one to open its records right there. Formula fields have <b>View formula</b>, which opens the formula to read or copy.</li>
-          <li><b>👁 View here</b> on a record Id (or opening doDev from a Salesforce record page) shows the record with its query in the editor (change it and run again), and <b>Quick links</b> on the right – also for any query that returns one record: <b>Related records ▸</b> (search the record's related lists and pick one – its records are queried right here; ‹ Back returns to the record; field history is one of them), <i>Who has access to this record</i>, the object's page and Object Manager.</li>
-          <li><b>The way back:</b> each record you open with View here is a step in a trail at the top (<i>‹ Back · Account query › GenePoint › Owner</i>) – click any step to go back to it as it was.</li>
-          <li>To change many records at once, use <a href="#import">Data Import</a> › <b>✎ Mass update</b>.</li>
-          <li><b>CSV ▾</b> and <b>JSON ▾</b> copy or download what is loaded (the filters apply). <i>Include deleted</i> also returns records in the Recycle Bin.</li>
-          <li><b>Tooling API</b> (next to <i>Include deleted</i>): send the query to the Tooling API instead of the data API – for objects both have, such as <code>PermissionSetTabSetting</code>. Objects only one of them has always go to that one.</li>
-          <li><b>A new query:</b> click <b>Data Explorer</b> in the tool row while it is on screen. A blank Data Explorer tab that is already open is used; otherwise a new one opens.</li>
-        </ul>
+        <details class="hMore"><summary>Editor and fields picker</summary>
+          <ul>
+            <li><kbd>Ctrl</kbd>+<kbd>Space</kbd> shows suggestions; <kbd>Enter</kbd> or <kbd>Tab</kbd> picks one.</li>
+            <li>Suggestions include related fields (<code>Owner.</code>), record types and relative dates (<code>last_n_months:9</code>).</li>
+            <li><span class="ui">☰ Fields &amp; relationships…</span> picks fields, lookups (5 levels) and related lists.</li>
+            <li><span class="ui">✨ Query Templates</span>, <b>History</b> (last 100) and <b>Saved</b> queries are next to the editor.</li>
+            <li><b>Tooling API</b> and <i>Include deleted</i> sit by the Run button.</li>
+          </ul>
+        </details>
+        <details class="hMore"><summary>Results and the record view</summary>
+          <ul>
+            <li>Sort, resize and copy any cell. <span class="ui">Related ▾</span> filters by related records.</li>
+            <li><span class="ui">Excel ▾</span> <span class="ui">CSV ▾</span> <span class="ui">JSON ▾</span> copy or download what's loaded.</li>
+            <li>One record shows every field with its type, validation rules and history.</li>
+            <li><b>Quick links</b>: related records, who has access, the object's page.</li>
+            <li>A trail at the top (<i>‹ Back · Account › GenePoint</i>) takes you back.</li>
+          </ul>
+        </details>
+        <details class="hMore"><summary>Big results</summary>
+          <ul>
+            <li>Rows load in parallel and are checked against the count.</li>
+            <li>Very many narrow rows switch to Bulk API 2.0, with a timer.</li>
+            <li>Over 100,000 rows (or too many to fit), you choose: download everything to a file, or load what fits.</li>
+          </ul>
+        </details>
       </section>
 
       <section id="import">
-        <h2>Data Import</h2>
-        <p class="hAsk">Load, update or delete records – the only tool that writes to Salesforce.</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/import-update-delete-records-from-csv">Import, update or delete records from a CSV or Excel</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>Fix a field on 500 records from a spreadsheet: paste the rows, check the mapping, run Update.</li><li>Close every open case of a retired product: ✎ Mass update → Start from a query, set Status, run.</li><li>Load test data into a sandbox from a CSV, with the failures in a results file to fix and load again.</li></ul></div>
-        <ol>
-          <li>At the top: the org, the <b>object</b> (it loads as soon as you pick it – no Start button) and the <b>Operation</b> – Insert, <b>Update</b> (by Id, the default), Upsert (by an external Id), Delete (by Id) or <b>Hard delete</b> (skips the Recycle Bin; needs a Bulk API and the <i>Bulk API Hard Delete</i> permission). Change it any time; the rows are checked again.</li>
-          <li>Next to it, where the records come from:
-            <ul>
-              <li><b>⬆ Import file</b> – click it, or drop a CSV on it.</li>
-              <li><b>📋 Paste rows</b> – Ctrl+V anywhere on the page (or click the tile, then Ctrl+V) with CSV or rows copied from Excel / Google Sheets.</li>
-              <li><b>✎ Mass update ▾</b> – pick the records (<i>Start from a query</i>, <i>Start from a list view</i>, <i>Start from a report</i> or <i>Paste IDs</i>), then give one or more fields a new value on all of them, or clear them; the records come back here as Update rows.</li>
-            </ul>
-            Any number of rows; the first row is the column names. You can do this first: rows with <b>record Ids</b> pick their object (from the Id) and Update for you.</li>
-          <li><b>⚙ Settings</b> (the tile after them – it opens on the right; as in Data Loader, kept in this browser): the <b>API</b> – REST (quickest for small loads), Bulk API or Bulk API 2.0 (for tens of thousands of rows; more than 100,000 rows switches to Bulk API 2.0 by itself, with the panel open so you can change it back); the <b>batch size</b> (REST up to 200, Bulk API up to 10,000; Bulk API 2.0 splits the data itself); <b>if a row fails</b> – save the other rows, or roll back its whole batch (REST); the <b>date format</b> in the file (MM/DD/YYYY or DD/MM/YYYY) and the time zone for date-times without one; <b>blank cells clear the field</b>; <b>serial mode</b> (Bulk API); <b>run assignment rules</b> (leads, cases); and <b>cut text that is too long</b> (off: such a row fails before anything is sent).</li>
-          <li>On the left: the column → field <b>mapping</b> (for delete only the Id column is used). On the right: the Run box, then the records as they will be sent. Problems such as required fields, unknown picklist values or bad dates are shown next to the Run button and on the rows they affect, before anything is sent. Once a run starts, the mapping folds into one line and the results take the full width.</li>
-          <li>At the bottom: <b>Records</b> – every loaded row as it will be sent (the matched columns, by field), a page at a time (25 to 200 per page, ‹ Prev / Next ›). Rows that will likely fail are marked in red with the reason (<i>Possible error</i>); how many is shown above the mapping.</li>
-          <li>At the top, after the tiles: click the button (e.g. <i>Update 450 records</i>) – it runs straight away (a production org gets a warning next to it). The <b>results</b> appear on the right as each batch finishes (with a Bulk API: as the job runs) – total, done, failed, pending, a bar and one line per row, the result or error first. <i>■ Stop</i> ends it early (a Bulk API job is aborted); when it is done the failed rows come first and <i>⬇ Results CSV</i> has every row's Salesforce Id or error.</li>
-        </ol>
-        <p>Blank cells leave the current value as it is (unless ⚙ Settings says they clear it); <code>#N/A</code> in a cell clears the field (update and upsert).</p>
-        <p class="hNote">Deleted records go to the Recycle Bin, where they can be restored for 15 days – hard-deleted ones don't. This tool cannot undo an import – keep your file and the results CSV.</p>
+        <div class="hHead"><div class="hIcon">⬆</div><div><h2>Data Import</h2><p class="hAsk">Insert, update, upsert or delete records.</p></div><div class="hChips"><span class="hChip">Data</span><span class="hChip writes">Writes to Salesforce</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/import-update-delete-records-from-csv">Import, update or delete records from a CSV or Excel</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Pick the object and the operation.</li>
+            <li><span class="ui">⬆ Import file</span>, <span class="ui">📋 Paste rows</span> or <span class="ui">✎ Mass update</span>.</li>
+            <li>Check the mapping and any red rows.</li>
+            <li>Click <span class="ui">Update 450 records</span>.</li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>Fixing a field on hundreds of records from a spreadsheet.</li>
+            <li>Changing every record a query finds – <span class="ui">✎ Mass update</span>.</li>
+            <li>Loading test data, with a results file for the failures.</li>
+          </ul></div>
+        </div>
+        <p class="hNote warn">Deleted records stay in the Recycle Bin for 15 days; hard-deleted ones don't. Keep your file and the results CSV.</p>
+        <details class="hMore"><summary>Settings and the run</summary>
+          <ul>
+            <li><span class="ui">⚙ Settings</span>: REST, Bulk API or Bulk API 2.0, batch size, date format, blank cells.</li>
+            <li>Over 100,000 rows switches to Bulk API 2.0 by itself.</li>
+            <li>Problems (required fields, bad values) show before anything is sent.</li>
+            <li>Results arrive batch by batch; <span class="ui">⬇ Results CSV</span> has every Id or error.</li>
+            <li><code>#N/A</code> in a cell clears the field.</li>
+          </ul>
+        </details>
       </section>
 
       <section id="who">
-        <h2>Who Has Metadata Access</h2>
-        <p class="hAsk">Who has this permission, and where does it come from?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/who-has-access-to-a-field">Who has access to a field</a> · <a href="../how-to/users-with-a-system-permission">Users with a system permission (e.g. Export Reports)</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>An auditor asks who can export reports: search the <i>Export Reports</i> permission and download the list.</li><li>Before making a field read-only, see everyone who can edit it today and which permission set gives it.</li></ul></div>
-        <ol>
-          <li>Search any system permission, object, field, Apex class, Visualforce page, custom permission, app, connected app or flow. For a field, pick the object and type <code>.</code> (or type <code>Account.</code>) to list its fields.</li>
-          <li>Check <i>Include inactive users</i> if you want them too, then <b>Find users</b>.</li>
-        </ol>
-        <ul>
-          <li>The tree lists <b>Profiles</b>, <b>Permission sets</b> and <b>Permission set groups</b> in separate sections, with head counts; click one to see its people.</li>
-          <li>A permission set that is in permission set groups shows a <b>2 groups</b> button: click it to list those groups, and pick one to see the people it gives the access to.</li>
-          <li>For objects and fields the table shows a ✓ per access level (View All / Modify All in orange).</li>
-          <li>The search above the table finds both people and profiles / permission sets. Hover a <i>Group:</i> pill to see the permission sets in that group.</li>
-          <li><b>📊 Access by source</b>: how many people each profile, permission set or group gives each level.</li>
+        <div class="hHead"><div class="hIcon find">⌕</div><div><h2>Who Has Metadata Access</h2><p class="hAsk">Who has this permission, and where does it come from?</p></div><div class="hChips"><span class="hChip find">Find</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guides:</b> <a href="../how-to/who-has-access-to-a-field">Who has access to a field</a> · <a href="../how-to/users-with-a-system-permission">Users with a system permission</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Search a permission, object, field, class, app or flow.</li>
+            <li><span class="ui">Find users</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>An auditor asks who can export reports.</li>
+            <li>Before making a field read-only – who can edit it today?</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li>People are grouped by profile, permission set and group.</li>
+          <li><span class="ui">☷ Columns</span> adds any User field, such as Manager.</li>
         </ul>
       </section>
 
       <section id="record">
-        <h2>Who Has Record Access</h2>
-        <p class="hAsk">Who can open this record, and why?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/why-can-a-user-see-a-record">Who can access a record – and why</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>A rep can see an opportunity they shouldn't: enter its Id and see the exact reason – role, sharing rule, team or View All.</li><li>A manager can't open a record: pick them under <i>Specific users</i> to see what is missing.</li></ul></div>
-        <ol>
-          <li>Enter the record ID (15 or 18 characters).</li>
-          <li>Choose <b>Everyone</b> (default) or <b>Specific users</b> – then pick users one by one; each becomes a pill (× removes it).</li>
-          <li>Check <i>Include inactive users</i> if needed and click <b>Check access</b>.</li>
-        </ol>
-        <p><b>Everyone:</b> the tree groups people by why they have access – <i>Owner</i>, <i>Role hierarchy</i> (roles nested as in the hierarchy), <i>Sharing rules</i> (who each rule shares with), <i>Manual shares</i>, <i>Teams</i>, <i>Territories</i>, <i>Global Modify All Data</i>, <i>Global View All Data</i>, <i>Modify All on the object</i>, <i>View All on the object</i> and <i>Parent record</i>. Click any entry to see its people. People who get a share but lack Read on the object are listed separately.</p>
-        <p>The pills above the tree – <i>Full access</i>, <i>Read/Write</i>, <i>Read only</i>, <i>Blocked: no Read on the object</i> and <i>No access</i>, each with its count – list only those people when clicked. Click several to combine them; <b>All</b> clears them.</p>
-        <p>The people table shows each person's <b>User Id</b>, and the filter box also finds a person by user Id. To check one person, you can paste their user Id (005…) when picking users.</p>
-        <p><b>Specific users:</b> one column per person with their access level and every reason.</p>
+        <div class="hHead"><div class="hIcon find">🔑</div><div><h2>Who Has Record Access</h2><p class="hAsk">Who can open this record, and why?</p></div><div class="hChips"><span class="hChip find">Find</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/why-can-a-user-see-a-record">Who can access a record – and why</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Enter the record Id.</li>
+            <li><b>Everyone</b>, or pick <b>Specific users</b>.</li>
+            <li><span class="ui">Check access</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>A rep sees a record they shouldn't.</li>
+            <li>A manager can't open a record.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li>Every reason is listed: owner, role, sharing rule, team, View All…</li>
+          <li>Pills filter by level – <i>Full access</i>, <i>Read only</i>, <i>Blocked</i>.</li>
+        </ul>
       </section>
 
       <section id="refs">
-        <h2>Where Is It Used</h2>
-        <p class="hAsk">Where is this used – before I change or delete it?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/where-is-a-field-used">Where a field is used before you change or delete it</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>Before deleting a field, check every flow, Apex class, formula, layout and report that uses it.</li><li>Renaming a custom label or a record type: find every place that names it first.</li></ul></div>
-        <ol>
-          <li>Choose the type (field, object, profile, role, group, permission set, Apex class, label, custom permission, record type, or any text) and the name or Id.</li>
-          <li>In <b>What to search</b> (right), check the places to search. The <i>(slower)</i> ones need one call per item: <b>flows and validation rules start checked</b>; Lightning pages and apps, quick actions, reports, Experience Cloud sites, OmniStudio, prompt templates and Agentforce start unchecked. <b>Up to 3</b> slower places can be checked at a time. <i>All</i> checks the quick places only.</li>
-          <li>Click <b>Find references</b>.</li>
-        </ol>
-        <ul>
-          <li>Results show place by place as they are found, with the progress bar; <b>■ Stop</b> keeps what was found.</li>
-          <li><b>Not searched</b>, at the top of the results, names every place that was left out, with <i>Choose places to search</i> – so "nothing found" is never read as "not used anywhere".</li>
-          <li><b>Who and what uses it</b> heads the results: the item and facts such as records with a value.</li>
-          <li>The tree lists places (e.g. Code › Apex classes, Apex test classes); each reference shows its line with the match highlighted, marked <b>exact</b> or <b>name only</b>. <b>View ›</b> opens the component.</li>
-          <li>Checked another place after the search? <b>Search … too</b> adds just those.</li>
+        <div class="hHead"><div class="hIcon find">🔗</div><div><h2>Where Is It Used</h2><p class="hAsk">Where is this used – before I change or delete it?</p></div><div class="hChips"><span class="hChip find">Find</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/where-is-a-field-used">Where a field is used before you change or delete it</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Pick the type and the name.</li>
+            <li>Check the places to search.</li>
+            <li><span class="ui">Find references</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>Before deleting a field.</li>
+            <li>Before renaming a label or a record type.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li>Slower places (flows, reports, pages…) go up to 3 at a time.</li>
+          <li><b>Not searched</b> lists what was left out, so "nothing found" is never misleading.</li>
         </ul>
       </section>
 
       <section id="inspect">
-        <h2>Find Any Metadata</h2>
-        <p class="hAsk">Find anything in the org and see everything about it on one page.</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/find-any-metadata">Find any metadata in an org</a> · <a href="../how-to/everything-a-user-can-access">See everything a user can access</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>Look up an object: fields, record types and automation on one page. <b>Record types › View</b> shows the picklist values each record type allows; <b>▦ Picklist values by record type</b> puts them side by side, and <b>Record types ▾</b> narrows the columns to the ones you care about.</li><li>Reviewing a field before changing it: the <b>Fields</b> tab shows how many validation rules use it (click to read them) and whether its history is tracked.</li><li>A user can't do something: open the user and read their <b>Access summary</b>.</li></ul></div>
-        <ul>
-          <li>Search from the box at the top of the workspace, or in this tool. Objects, fields, users, flows, Apex, LWC, Aura, Visualforce, profiles, permission sets, roles, groups, labels, static resources, email templates, Lightning pages and validation rules each have their own page.</li>
-          <li><b>Code</b> shows with line numbers and colours. <b>Find in file</b> (or Ctrl+F inside it) marks every match; Enter / Shift+Enter step through them.</li>
-          <li><b>⇄ Compare with ▾</b> → an org shows the same component from that org (one org at a time – picking another replaces it; <b>✕ Stop comparing</b> goes back): the details become a side-by-side table and each tab lists only the differences (uncheck <i>Only differences</i> to see all). Code becomes a side-by-side diff.</li>
-          <li>For a <b>profile, permission set or permission set group</b>, <b>⇄ Compare with ▾</b> → an org opens <a href="#ps">Compare Permissions</a> straight away with the same item in both orgs: every permission – objects, fields, system and app permissions, Apex, pages, tabs and more – side by side.</li>
-          <li>For a <b>user</b>, <b>⇄ Compare with ▾</b> → an org opens <a href="#users">Compare Users</a> with the same user in both orgs (matched by username, ignoring a sandbox suffix) and runs it. When that org has no such user, its side is left empty for you to pick one.</li>
-          <li>Each page starts with its key details – the label above each value – and its tabs. Every table on a page sorts by its headers (Name first).</li>
-          <li><b>A user's page:</b> profile, role, email, last login and created at the top; everything else (status, role path, licence, user type, alias, time zone…) is on the <b>Details</b> tab, in groups. <b>Permission sets</b> lists the profile, permission sets, groups and licences with <i>Assigned on</i> and <i>Assigned by</i> from the Setup Audit Trail – older than its 180 days shows ≈ the last change.</li>
-          <li><b>An object's Page layouts › Assignments:</b> a matrix – profiles down the side, record types across – each layout in its own colour, every cell on one line (it scrolls sideways). The search box matches profiles and layouts; <i>Layouts ▾</i> and <i>Record types ▾</i> show only the layouts and record types you check – one or several, with <i>All</i> / <i>Clear</i> at the top (record types that use none of the checked layouts are hidden); <b>↺ Reset</b> clears it all.</li>
-          <li><b>An object's Lightning pages › Assignments:</b> nothing is read until you ask: pick <i>Org default</i> or an app and click <b>Load</b> to see where it activates a page (by record type and profile), or <b>All apps</b> to read the org default and every app – slower in orgs with many apps.</li>
-          <li><b>👤 Log in as</b> (users) opens Salesforce's own login-as, when you are allowed to.</li>
-          <li>A user's <b>Access summary</b> tab lists everything they can do – system permissions, objects (Read · Create · Edit · Delete · View All · Modify All), fields, tabs, Apex classes, Visualforce pages, custom permissions, apps… – each with the profile, permission set or group that grants it. It opens on <b>Objects</b> – every object with its level, in sections: the key Sales / Service Cloud objects first, then your custom objects, then all other standard objects and each managed package (these two folded until you click them, or opened by a search or filter); filter by level (e.g. only objects with <i>View All</i> and <i>Modify All</i>) and use <i>Fields ›</i> to jump to an object's fields. <b>Fields</b> lists them grouped by object (filter by Read / Edit); <i>Granted by</i> (folded at first) shows what each profile, permission set or group gives. One search covers the tree and the table.</li>
-          <li>Components from a <b>managed package</b> show its namespace as a badge after the name in every search result (e.g. <i>LeadTrigger</i> <code>pkg</code>), so two with the same name are easy to tell apart.</li>
+        <div class="hHead"><div class="hIcon find">◎</div><div><h2>Find Any Metadata</h2><p class="hAsk">Everything about any component, on one page.</p></div><div class="hChips"><span class="hChip find">Find</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guides:</b> <a href="../how-to/find-any-metadata">Find any metadata in an org</a> · <a href="../how-to/everything-a-user-can-access">Everything a user can access</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li><kbd>Ctrl</kbd>+<kbd>K</kbd> and type a name.</li>
+            <li>Pick a result – its page opens.</li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>Looking up an object's fields, record types and automation.</li>
+            <li>A user can't do something – read their <b>Access summary</b>.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li><span class="ui">⇄ Compare with ▾</span> shows the same item from another org.</li>
+          <li>Objects show layout and Lightning page assignments; users show who assigned what, and when.</li>
         </ul>
       </section>
 
       <section id="users">
-        <h2>Compare Users</h2>
-        <p class="hAsk">Why can one user see or do something another user can't?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-two-users">Compare two users</a> · <a href="../how-to/compare-users-in-two-salesforce-orgs">Compare a user in two orgs</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>A new hire can't see a tab their teammate can: compare the two and see the permission set that makes the difference.</li><li>Check that a user was set up the same in the sandbox and in production.</li></ul></div>
-        <p>Pick 2–5 users (from one org or several) and click <b>Compare</b>. Results combine each user's profile, permission sets and groups, and also cover assignments, licences, groups, queues, teams, territories, the role path and the user record. Each difference says which profile, permission set or group grants it. The layout is the same as <a href="#ps">Compare Permissions</a>.</p>
+        <div class="hHead"><div class="hIcon compare">⇄</div><div><h2>Compare Users</h2><p class="hAsk">Why can one user do something another can't?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guides:</b> <a href="../how-to/compare-two-users">Compare two users</a> · <a href="../how-to/compare-users-in-two-salesforce-orgs">A user in two orgs</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Pick 2–5 users, from any orgs.</li>
+            <li><span class="ui">Compare</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>A new hire can't see what a teammate can.</li>
+            <li>Checking a user matches in sandbox and production.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow"><li>Each difference names the profile, permission set or group behind it.</li></ul>
       </section>
 
       <section id="ps">
-        <h2>Compare Permissions</h2>
-        <p class="hAsk">Why can one profile or permission set do something another can't?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-profiles-and-permission-sets">Compare two profiles or permission sets</a> · <a href="../how-to/compare-profiles-between-two-salesforce-orgs">A profile between two orgs</a> · <a href="../how-to/compare-profile-with-permission-set">A profile with a permission set</a> · <a href="../how-to/compare-permission-sets-between-sandbox-and-production">A permission set between sandbox and production</a> · <a href="../how-to/compare-permission-set-groups">Permission set groups</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>Before retiring a profile, see what it gives that the permission set replacing it doesn't – and download a gap permission set.</li><li>Check that a permission set is the same in a sandbox and in production before a release.</li></ul></div>
-        <ol>
-          <li>Pick 2–5 profiles, permission sets or permission set groups, from one org or several. <b>Categories ▾</b> chooses what is compared.</li>
-          <li>Click <b>Compare</b>.</li>
-        </ol>
-        <ul>
-          <li>The counts – differences, only in each, changed in both, matched in both – filter the results when clicked. When both sides have the same name (the same permission set in two orgs), the counts name the orgs: <i>only in uat</i>.</li>
-          <li>The tree lists the sections; click one to see just it. Sections start collapsed; <i>Expand all</i> opens them.</li>
-          <li><b>Objects</b> and <b>Fields</b>: one row per object (or field), a column per permission. Comparing two: a green ✓ is only in the first, a red ✓ only in the second, a grey ✓ in both, and an empty cell in neither; ≠ marks what differs. Each object shows how many of its fields differ – click it to open the Fields section on that object. <b>Only differences</b> (the default) shows just what differs; <b>Everything provisioned</b> shows all access either side has.</li>
-          <li><b>Export</b>: Download CSV or Excel, or a deployable <i>gap permission set</i> that grants one side what the other has.</li>
+        <div class="hHead"><div class="hIcon compare">⇄</div><div><h2>Compare Permissions</h2><p class="hAsk">Why can one profile or permission set do something another can't?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guides:</b> <a href="../how-to/compare-profiles-and-permission-sets">Two profiles or permission sets</a> · <a href="../how-to/compare-profiles-between-two-salesforce-orgs">Between two orgs</a> · <a href="../how-to/compare-profile-with-permission-set">Profile vs permission set</a> · <a href="../how-to/compare-permission-sets-between-sandbox-and-production">Sandbox vs production</a> · <a href="../how-to/compare-permission-set-groups">Permission set groups</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Pick 2–5 profiles, permission sets or groups.</li>
+            <li><span class="ui">Compare</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>Retiring a profile – what does the new set miss?</li>
+            <li>Checking a release – same in sandbox and production?</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li>Green ✓ only in the first, red ✓ only in the second, grey ✓ in both.</li>
+          <li><span class="ui">Export</span> gives CSV, Excel or a deployable gap permission set.</li>
         </ul>
       </section>
 
       <section id="persona">
-        <h2>Role &amp; Profile Members</h2>
-        <p class="hAsk">What does everyone in a role or profile actually have – and who is different?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/role-and-profile-members">What everyone in a role or profile has – and who is different</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>Clean up permission sets: see what everyone in a role already has, and which few people have extra.</li><li>Design a permission set group for a team from what most of its members hold.</li></ul></div>
-        <ol>
-          <li>Pick a role (optionally with the roles below it) or a profile.</li>
-          <li>Click <b>Build matrix</b>.</li>
-        </ol>
-        <ul>
-          <li>The tree groups what people hold: <i>Everyone has</i>, <i>Most have</i>, <i>Only a few have</i>, <i>Licences</i> – then <i>Profiles</i> and <i>People</i> (those who differ first). Click a permission set to see who has it and who is missing it, or a person to see what they're missing.</li>
-          <li>The <b>Matrix</b> lists the profiles first, in their own section, then the permission sets, groups and licences.</li>
-          <li>Views: <b>Coverage</b>, <b>Matrix</b>, <b>Differences per person</b> and <b>Suggested permission set group</b> (with a deployable file and an assignment plan).</li>
-        </ul>
+        <div class="hHead"><div class="hIcon compare">👥</div><div><h2>Role &amp; Profile Members</h2><p class="hAsk">What does everyone in a role or profile have – and who is different?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/role-and-profile-members">What everyone in a role or profile has</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Pick a role or a profile.</li>
+            <li><span class="ui">Build matrix</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>Cleaning up permission sets.</li>
+            <li>Designing a permission set group for a team.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow"><li>Views: Coverage, Matrix, Differences per person, Suggested group (deployable).</li></ul>
       </section>
 
       <section id="code">
-        <h2>Compare Code &amp; Metadata</h2>
-        <p class="hAsk">What code and metadata differ between two orgs – before a deployment?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-apex-and-metadata-between-orgs">Compare Apex and metadata between sandbox and production</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>Before a deployment, list the Apex, flows and metadata that differ between the sandbox and production.</li><li>Find what was changed straight in production and never made it back to the sandbox.</li></ul></div>
-        <p>Pick two orgs and click <b>Compare code &amp; metadata</b>. Everything is compared by default; <b>⚙ What to compare</b> narrows the types or names (remembered for that pair of orgs). It is open beside the inputs when the tool opens, and closes when the results show – reopen it with the same button. Results are a project tree with changed / same counts; click a component or file for a side-by-side diff (the button switches to one column). When only the line endings differ (Windows CRLF against Unix LF, or a missing last line break), that is shown instead – each line's ending marked. ↑ / ↓ (or j / k) move between changes. Global value sets, custom metadata records and custom settings are <i>(slower)</i> – one call per item – so they start unchecked, up to 3 at a time.</p>
+        <div class="hHead"><div class="hIcon compare">{ }</div><div><h2>Compare Code &amp; Metadata</h2><p class="hAsk">What differs between two orgs before a deployment?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/compare-apex-and-metadata-between-orgs">Compare Apex and metadata between orgs</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Pick two orgs.</li>
+            <li><span class="ui">Compare code &amp; metadata</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>Before a deployment.</li>
+            <li>Finding hotfixes made only in production.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li><span class="ui">⚙ What to compare</span> narrows the types or names.</li>
+          <li>Side-by-side diffs; <kbd>j</kbd> / <kbd>k</kbd> jump between changes.</li>
+        </ul>
       </section>
 
       <section id="object">
-        <h2>Compare Objects</h2>
-        <p class="hAsk">Is this object the same in both orgs?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-an-object-between-orgs">Compare an object between two orgs</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>A record saves in the sandbox but not in production: compare the object for different validation rules, required fields or picklist values.</li></ul></div>
-        <p>Type the object, pick two orgs and click <b>Compare object</b>. You get object settings, every field attribute, picklist values (also per record type), record types, validation rules, triggers, record-triggered flows, layouts and Lightning pages, with the differences highlighted. On the left, a tree lists <i>All differences</i>, then each section with its changed items, and the sections that are the same in every org under <i>Identical in all orgs</i>. Click a section or an item to see just that on the right; the filter above narrows the tree.</p>
+        <div class="hHead"><div class="hIcon compare">▤</div><div><h2>Compare Objects</h2><p class="hAsk">Is this object the same in both orgs?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/compare-an-object-between-orgs">Compare an object between two orgs</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Type the object, pick two orgs.</li>
+            <li><span class="ui">Compare object</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>A record saves in the sandbox but not in production.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow"><li>Fields, picklist values, record types, validation rules, triggers, flows, layouts and pages.</li></ul>
       </section>
 
       <section id="recs">
-        <h2>Compare Records</h2>
-        <p class="hAsk">How do two records differ – their fields and their child records?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-two-salesforce-records">Compare two Salesforce records, field by field</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>The same account looks different in two orgs: compare them field by field, then <b>Make a record match</b>.</li><li>Merging duplicates: compare them to see which fields and child records each one has.</li></ul></div>
-        <ol>
-          <li>For each record, pick its org and paste its Id (15 or 18 characters). The records can be in one org or in several – for example the same account in a sandbox and in production. <b>⇄</b> swaps the first two.</li>
-          <li><b>+ Add a record</b> adds a third, fourth and fifth (up to 5); <b>×</b> takes one away again. All of them must be records of the same object.</li>
-          <li>Click <b>Compare records</b>.</li>
-        </ol>
-        <ul>
-          <li>One line at the top: the records' names, the filter box and two counts – <b>differences</b> and <b>the same</b> – that pick the fields shown.</li>
-          <li><b>Fields</b>: every field – label, API name, then one column per record. Only the values that differ are highlighted: with two records both, with more the ones that differ from what most of them have. A field one org doesn't have says so.</li>
-          <li><b>Lookups</b> (Owner, Parent Account…) are compared by the name of the record they point to, not its Id – Ids differ between orgs. Hover one for its Id; a click offers View here / View in Salesforce.</li>
-          <li><b>System fields</b> (Id, created and last modified, Photo URL…) always differ, so they are kept apart – check <i>System fields</i> to see them.</li>
-          <li><b>Child records</b>: each child object (contacts, cases, history, your custom objects…) with the field it points through and how many records each record has. A count opens those records in Data Explorer. <i>Also child objects with no records</i> lists the empty ones too.</li>
-          <li><b>⬇ Export</b>: the fields listed, one column per record, as CSV or Excel.</li>
-          <li><b>⇄ Make a record match…</b>: pick the record whose values to copy and the record to update; the differing fields that can be edited are listed with a checkbox each, and doDev writes the update for you to run – an <b>Apex script</b> (Developer Console › Execute Anonymous) or a <b>CSV for Data Loader</b>'s Update. doDev itself changes nothing. Lookups to records in another org are left out (their Ids mean nothing there).</li>
+        <div class="hHead"><div class="hIcon compare">⇆</div><div><h2>Compare Records</h2><p class="hAsk">How do two records differ?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/compare-two-salesforce-records">Compare two Salesforce records</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Pick each record's org and paste its Id (up to 5).</li>
+            <li><span class="ui">Compare records</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>The same account differs between orgs.</li>
+            <li>Merging duplicates.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li>Lookups compare by name, so orgs with different Ids still match.</li>
+          <li><span class="ui">⇄ Make a record match</span> writes an Apex script or Data Loader CSV – doDev changes nothing.</li>
         </ul>
       </section>
 
       <section id="org">
-        <h2>Compare Org Settings</h2>
-        <p class="hAsk">How are two orgs set up differently?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/compare-org-settings">Compare settings between two orgs</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>A login or session problem happens in one org only: compare password, session and IP settings.</li><li>Check sharing defaults before refreshing a sandbox.</li></ul></div>
-        <p>Pick two orgs and click <b>Compare orgs</b>: org-wide defaults, role hierarchy, password and session policies, trusted IP ranges, connected app policies and organization settings. Values that differ from the first org are highlighted. <b>Org-Wide Defaults</b> lists only real sharing changes (e.g. Private → Read/Write); objects that exist in only one org are listed apart, under <i>Objects in only one org</i>. On the left, a tree lists <i>All differences</i>, then each section with its changed items, and the sections that are the same in every org under <i>Identical in all orgs</i>. Click a section or an item to see just that on the right; the filter above narrows the tree.</p>
+        <div class="hHead"><div class="hIcon compare">⚙</div><div><h2>Compare Org Settings</h2><p class="hAsk">How are two orgs set up differently?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/compare-org-settings">Compare settings between two orgs</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Pick two orgs.</li>
+            <li><span class="ui">Compare orgs</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>A login problem happens in one org only.</li>
+            <li>Before refreshing a sandbox.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow"><li>Sharing defaults, roles, password and session policies, IP ranges, connected apps.</li></ul>
       </section>
 
       <section id="jobs">
-        <h2>Jobs</h2>
-        <p class="hAsk">Which scheduled and background jobs ran, when, and which failed – and what exactly happened to this one?</p>
-        <p class="hGuides"><b>Step-by-step guides:</b> <a href="../how-to/monitor-scheduled-apex-jobs">Monitor scheduled and failed Apex jobs</a></p>
-        <div class="hUse"><b>Use it when…</b><ul><li>A nightly batch didn't run: find the job and read its latest error.</li><li>See every scheduled job and when it runs next before a release window.</li></ul></div>
-        <p>There are two ways to start:</p>
-        <ul>
-          <li><b>Load all jobs – last 7 days</b> shows every job.</li>
-          <li><b>Job Id, Apex class or scheduled job name</b> + <b>Find job</b> (or <kbd>Enter</kbd>) goes straight to one job.</li>
+        <div class="hHead"><div class="hIcon monitor">◷</div><div><h2>Jobs</h2><p class="hAsk">Which jobs ran, when, and which failed?</p></div><div class="hChips"><span class="hChip monitor">Monitor</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/monitor-scheduled-apex-jobs">Monitor scheduled and failed Apex jobs</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li><span class="ui">Load all jobs</span> for the last 7 days,</li>
+            <li>or enter a job Id or class name and <span class="ui">Find job</span>.</li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>A nightly batch didn't run.</li>
+            <li>Checking what runs during a release window.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li>A coloured dot per job: red failed, yellow running, green fine.</li>
+          <li>A job's page shows every run, its next run and the latest error.</li>
         </ul>
-        <h3>All jobs</h3>
-        <p>On the left, a tree lists every job grouped by type – a dot shows how it is doing (red: failed recently, yellow: running, blue: waiting for its first run, green: fine) – <i>Scheduled Apex</i>, <i>Batch Apex</i>, <i>Queueable</i>, <i>Future</i>, then scheduled flows and data export – with how many runs failed. Report runs, report notifications, dashboard refreshes and reporting snapshots are not shown. The search above the tree narrows it by name, Apex class or Id.</p>
-        <ul>
-          <li><b>Overview</b> (top of the tree): tiles for scheduled jobs, runs in 7 days, failed runs and what is running now; <i>Needs attention</i> (jobs with failures, worst first) and <i>Coming up · next 24 h</i>; runs per day; and each type with its success rate and next run.</li>
-          <li><b>A type</b>: its jobs with the schedule in words, next and last run, and a 7-day grid coloured by result.</li>
-          <li><b>A job</b>: its page (below).</li>
-        </ul>
-        <h3>Find one job</h3>
-        <p>You can enter:</p>
-        <ul>
-          <li>a scheduled job Id (<code>08e…</code>) or its job detail Id (<code>08a…</code>), from <i>Scheduled Jobs</i> in Setup;</li>
-          <li>a run Id (<code>707…</code>), from <i>Apex Jobs</i> in Setup – a copied Setup link works too;</li>
-          <li>an Apex class Id (<code>01p…</code>), an Apex class name or a scheduled job name – part of a name is enough. When several jobs match, they are listed and you pick one.</li>
-        </ul>
-        <p>An Id reads just that job, so it opens quickly; a name searches every job of the last 7 days.</p>
-        <h3>A job's page</h3>
-        <ul>
-          <li><b>At the top:</b> the job's name, type and state; the schedule in words with its cron expression and time zone; and, on the right, <b>Next run</b> as a countdown.</li>
-          <li><b>Apex class</b> on one line: click the class name to open its code in Find Any Metadata; its Id (click to copy); <b>Open job in Apex Jobs ↗</b> (and Scheduled Jobs for a schedule) in Setup. Future methods show the method.</li>
-          <li><b>The run you picked</b> on one line – when you searched by a run Id or clicked a bar: its Id, status, start, how long it took, batches, errors and who started it (✕ hides it); a failed run shows Salesforce's message under it.</li>
-          <li><b>Tiles:</b> runs kept, succeeded, failed or with errors, the typical run time (and the longest) and how the last run went.</li>
-          <li><b>Each run as a bar</b> – height for how long it took, colour for how it went; click a bar to pick that run.</li>
-          <li><b>Latest error</b> in red, with Salesforce's full message.</li>
-          <li><b>Schedule</b> (scheduled jobs): its Id, previous run, how many times it has run, start and end, and who scheduled it.</li>
-          <li><b>Running or queued now</b>, then <b>Runs</b>: every run Salesforce still has (about 7 days) with a bar for how long each took; failed rows are tinted and <i>Failed only</i> narrows to them. Click any Id to copy it.</li>
-        </ul>
-        <p class="hNote">A batch or queueable job started by a scheduled class is a separate job: look up that class to see its runs. Scheduled flows show their schedule, but Salesforce does not record their runs as Apex jobs.</p>
       </section>
 
-
       <section id="keys">
-        <h2>Keyboard shortcuts</h2>
-        <table class="hTable">
-          <tr><td><kbd>Ctrl</kbd> + <kbd>K</kbd></td><td>Jump to the search box at the top</td></tr>
-          <tr><td><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td><td>Run the query (Data Explorer)</td></tr>
-          <tr><td><kbd>Ctrl</kbd> + <kbd>Space</kbd></td><td>Show suggestions (SOQL editor)</td></tr>
-          <tr><td><kbd>Esc</kbd></td><td>Stop a running query; close a menu</td></tr>
-          <tr><td><kbd>Ctrl</kbd> + <kbd>F</kbd></td><td>Find in file (inside a code view)</td></tr>
-          <tr><td><kbd>Enter</kbd> / <kbd>Shift</kbd> + <kbd>Enter</kbd></td><td>Next / previous match (Find in file)</td></tr>
-          <tr><td><kbd>↑</kbd> / <kbd>↓</kbd> or <kbd>j</kbd> / <kbd>k</kbd></td><td>Previous / next change (Compare Code &amp; Metadata)</td></tr>
+        <div class="hHead"><div class="hIcon gen">⌘</div><div><h2>Keyboard shortcuts</h2></div></div>
+        <table class="hTable" style="margin-top:12px">
+          <tr><td><kbd>Ctrl</kbd> + <kbd>K</kbd></td><td>Search</td></tr>
+          <tr><td><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td><td>Run the query</td></tr>
+          <tr><td><kbd>Ctrl</kbd> + <kbd>Space</kbd></td><td>Show suggestions</td></tr>
+          <tr><td><kbd>Esc</kbd></td><td>Stop a query; close a menu</td></tr>
+          <tr><td><kbd>Ctrl</kbd> + <kbd>F</kbd></td><td>Find in a code view</td></tr>
+          <tr><td><kbd>j</kbd> / <kbd>k</kbd></td><td>Next / previous change</td></tr>
+          <tr><td><kbd>/</kbd></td><td>Search this help</td></tr>
         </table>
       </section>
 
       <section id="trouble">
-        <h2>Troubleshooting</h2>
+        <div class="hHead"><div class="hIcon gen">?</div><div><h2>Troubleshooting</h2></div></div>
         <dl>
-          <dt>"Your Salesforce session has expired"</dt>
-          <dd>Log in again in a Salesforce tab, then click <b>⟲ Restart this tool</b>.</dd>
-          <dt>"You are logged into more than one Salesforce org"</dt>
-          <dd>Go to a tab of the org you want and click the doDev icon there.</dd>
-          <dt>"Salesforce didn't answer within 150 seconds"</dt>
-          <dd>Ask for less at once (fewer places, a narrower query) and try again.</dd>
-          <dt>"This org has used up its API requests for now"</dt>
-          <dd>Salesforce limits API calls per org over a rolling 24 hours. Wait and try again later. doDev warns you when an org passes 90%.</dd>
-          <dt>Salesforce is busy (too many requests)</dt>
-          <dd>doDev waits and retries reads by itself, and never sends more than a few requests at once. Data Import writes are never retried, so nothing is created twice.</dd>
-          <dt>A tool shows something unexpected</dt>
-          <dd>Open the log (terminal icon) for details, and <a href="../support">report it</a> – please without any Salesforce data.</dd>
+          <dt>"Your Salesforce session has expired"</dt><dd>Log in again, then <span class="ui">⟲ Restart this tool</span>.</dd>
+          <dt>"You are logged into more than one org"</dt><dd>Click the doDev icon from a tab of the org you want.</dd>
+          <dt>"Salesforce didn't answer within 150 seconds"</dt><dd>Ask for less at once and try again.</dd>
+          <dt>"This org has used up its API requests"</dt><dd>Wait and try later – doDev warns you past 90%.</dd>
+          <dt>Something unexpected</dt><dd>Check the log (terminal icon) and <a href="../support">report it</a> – without Salesforce data.</dd>
         </dl>
       </section>
 
       <section id="privacy">
-        <h2>Privacy and your data</h2>
-        <ul>
-          <li>Everything runs in your browser. doDev talks only to your own Salesforce org(s) with the login you already have; it sends nothing to its developer or anyone else, and has no tracking.</li>
-          <li>What it keeps on your computer – saved queries, query history, recent runs, the last session, recent searches and choices such as columns or <i>Where to look</i> – is <b>encrypted</b> (AES-256-GCM) with a key created on your computer that cannot be read out. It never contains Salesforce records.</li>
-          <li>Clear it any time with <i>Delete</i> / <i>Clear history</i> in the tools, or by clearing the browser's site data.</li>
-          <li><b>What it remembers about your orgs while you work</b> – object details, lists for the search box, names behind Ids – stays in memory only, is never written to the browser, and is forgotten when you refresh or close the workspace, when your Salesforce session ends, after 30 minutes unused, or when you switch org.</li>
-          <li><b>No code can be slipped in:</b> doDev's pages run only doDev's own files; Chrome refuses any other script, and (Trusted Types) any attempt to turn text into HTML or script. Requests go only to the Salesforce org your session belongs to.</li>
-          <li>Full policy: <a href="https://doinittools.github.io/doinit-dodev-community/privacy" target="_blank" rel="noopener">privacy policy</a>.</li>
+        <div class="hHead"><div class="hIcon gen">🔒</div><div><h2>Privacy and your data</h2><p class="hAsk">Everything runs in your browser. Nothing is sent to us or anyone else.</p></div></div>
+        <ul class="hKnow">
+          <li>doDev talks only to your own Salesforce org, with your login. No tracking.</li>
+          <li>Saved queries and settings are encrypted on your computer – never Salesforce records.</li>
+          <li>Org details stay in memory only and are forgotten when you close or refresh.</li>
+          <li>Clear everything under <b>🔒 Your data</b> in the footer. Full <a href="https://doinittools.github.io/doinit-dodev-community/privacy" target="_blank" rel="noopener">privacy policy</a>.</li>
         </ul>
       </section>
 
       <section id="about">
-        <h2>About</h2>
-        <p>doDev – Admin &amp; Dev Toolkit for Salesforce. Free to use. Copyright © 2026 doInit Tools. All rights reserved.</p>
-        <p>Questions, bugs or ideas: the <a href="../support">support page</a> (report a bug, request a feature), the <a href="../">community site</a>, or email <a href="mailto:doinittools@gmail.com">doinittools@gmail.com</a>.</p>
-        <p class="hNote">Not affiliated with or endorsed by Salesforce, Inc. Salesforce is a trademark of Salesforce, Inc.</p>
+        <div class="hHead"><div class="hIcon gen">i</div><div><h2>About</h2><p class="hAsk">doDev – Admin &amp; Dev Toolkit for Salesforce. Free to use.</p></div></div>
+        <p>Questions or ideas: the <a href="../support">support page</a> or <a href="mailto:doinittools@gmail.com">doinittools@gmail.com</a>.</p>
+        <p class="hNote">© 2026 doInit Tools. Not affiliated with Salesforce, Inc. Salesforce is a trademark of Salesforce, Inc.</p>
       </section>
     </main>
     </div>

@@ -52,10 +52,23 @@
       const a = links.get(s.id);
       if (a) a.hidden = !hit;
       if (hit) { shown++; if (words.length) highlight(s, words); }
+      // Folded details: a search opens the ones with a match (and closes them again when the search is cleared)
+      s.querySelectorAll('details.hMore').forEach((d) => {
+        if (d.dataset.auto) { d.open = false; delete d.dataset.auto; }
+        if (hit && words.length && !d.open && d.querySelector('mark')) { d.open = true; d.dataset.auto = '1'; }
+      });
     });
     document.querySelectorAll('.hTocGroup').forEach((g) => { g.hidden = !!words.length; });
     noMatch.hidden = shown > 0;
   });
+  // Printing shows everything: folded details open for the print and close again after
+  let printed = [];
+  window.addEventListener('beforeprint', () => { printed = [...document.querySelectorAll('details.hMore:not([open])')]; printed.forEach((d) => { d.open = true; }); });
+  window.addEventListener('afterprint', () => { printed.forEach((d) => { d.open = false; }); printed = []; });
+  // A link to something inside a folded detail opens it
+  const openTo = () => { const t = location.hash && document.getElementById(location.hash.slice(1)); const d = t && t.closest('details.hMore'); if (d) d.open = true; };
+  window.addEventListener('hashchange', openTo);
+  openTo();
   // "/" jumps to the search, like most help sites
   document.addEventListener('keydown', (e) => {
     if (e.key === '/' && document.activeElement !== search) { e.preventDefault(); search.focus(); }

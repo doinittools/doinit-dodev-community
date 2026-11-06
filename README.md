@@ -77,30 +77,65 @@
 ## ❓ FAQ
 
 <details>
-<summary><b>Is doDev really free?</b></summary>
+<summary><b>Where does my Salesforce data go?</b></summary>
 
-Yes. No account and no paid tier. Install it from the [Chrome Web Store](https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd) and open it from any Salesforce page.
-
-</details>
-
-<details>
-<summary><b>Chrome says "not trusted by Enhanced Safe Browsing". Is it safe?</b></summary>
-
-Chrome shows this for extensions from publishers whose account is still new – Google trusts a publisher after a few months of following its policies. It isn't about what doDev does; you can safely choose **Continue to install**. Standard Chrome settings don't show the warning.
+Nowhere but your screen. doDev runs in your browser and talks only to your own org – no doDev server, no analytics, no tracking.
 
 </details>
 
 <details>
-<summary><b>Which orgs does it work with?</b></summary>
+<summary><b>What exactly does doDev access?</b></summary>
 
-Any org you are logged into in Chrome – production, sandboxes and Developer Edition orgs. Log into two orgs to compare them.
+Your Salesforce session cookie, only on Salesforce domains, to call your own org's APIs – then only what the tool you run asks for.
 
 </details>
 
 <details>
-<summary><b>For IT teams: what exactly does it access?</b></summary>
+<summary><b>Which Chrome permissions does it ask for?</b></summary>
 
-The extension ID is `agcjfjpmlmfbdbgfohficnccnknimhbd`. What it accesses and how your data is protected are in the [privacy policy](privacy.md).
+Just **cookies**, limited to Salesforce domains. It can't read other websites, your tabs or your history, and adds nothing to Salesforce pages.
+
+</details>
+
+<details>
+<summary><b>Can doDev see more than I can?</b></summary>
+
+No. Every call runs as you, with your profile, permission sets and sharing.
+
+</details>
+
+<details>
+<summary><b>Which Salesforce permissions do I need?</b></summary>
+
+**API Enabled**; tools that read setup usually also need *View Setup and Configuration*. Data Import needs create, edit or delete on the object.
+
+</details>
+
+<details>
+<summary><b>Can doDev change my data?</b></summary>
+
+Only Data Import writes – after a preview, and only when you click the button that names the record count. Every other tool only reads.
+
+</details>
+
+<details>
+<summary><b>What is saved on my computer?</b></summary>
+
+Only your saved queries, history, recent runs and preferences – encrypted (AES-256-GCM). Never records, never your session.
+
+</details>
+
+<details>
+<summary><b>Is it free? Which orgs?</b></summary>
+
+Free, no account. Any org you're logged into in Chrome – production, sandboxes, Developer Edition.
+
+</details>
+
+<details>
+<summary><b>For IT teams: how do we review or allow it?</b></summary>
+
+Extension ID `agcjfjpmlmfbdbgfohficnccnknimhbd` – manage it with Chrome's extension policies. Details in the [privacy policy](privacy.md).
 
 </details>
 
