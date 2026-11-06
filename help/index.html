@@ -31,7 +31,7 @@ layout: null
     <h1 class="hTitle">doDev Help</h1>
     <div class="hSearchRow">
       <input id="hSearch" class="hSearch" type="search" placeholder="Search the help – e.g. columns, record access, SOQL" aria-label="Search the help">
-      <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.4.1</span>
+      <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.4.2</span>
     </div>
     <div class="hLayout">
     <nav class="hToc" aria-label="Contents">
@@ -145,7 +145,9 @@ layout: null
           <li>Click a column header to sort, drag its edge to resize, hover a cell or header for <b>⧉</b> copy.</li>
           <li>Checkbox fields show <b>true</b> or <b>false</b>.</li>
           <li>Tables of several records show the first <b>200 columns</b> – a note above says how many there are; Excel, CSV and JSON downloads have them all.</li>
-          <li><b>Big results:</b> above 20,000 rows the query switches to <b>Bulk API 2.0</b> by itself (a note says so) – a few API calls in all instead of one per 2,000 rows. Queries with related lists, totals (COUNT, SUM…), GROUP BY or OFFSET load the usual way.</li>
+          <li><b>Big results:</b> every row loads, several batches at once, with the count moving as they arrive. The table shows a <b>page</b> at a time (200 rows; pick 50 to 2,000 under <i>Rows per page</i>) – the filter, sort, Excel, CSV and JSON cover every row loaded.</li>
+          <li><b>Very many narrow rows</b> (over about 400,000 rows of a few fields): the query switches to <b>Bulk API 2.0</b> – a few API calls in all. A line above the table says so, with the time so far: Salesforce prepares the rows first, then they arrive in pieces with a progress bar. Rows with many fields always load batch by batch – for them that is much faster. So do queries with related lists, totals (COUNT, SUM…), GROUP BY or OFFSET.</li>
+          <li><b>Very big results</b> (100,000 rows or more, or more than fit in the browser – wide rows take more room): the first rows show, and you choose <b>Download all as CSV</b> (every row straight to a file you pick, through Bulk API 2.0 – nothing is kept in the page) or <b>Load here</b> (as many rows as fit, to browse, filter and sort).</li>
           <li><b>Filter these results</b> narrows the rows as you type; the count next to it then says how many match, for example <i>12 of 2,000 Accounts match the filter</i>.</li>
           <li>Above the results: the filter box, then <b>Related ▾</b> (when the query has related lists) – check one or several of <i>With …</i> / <i>Without …</i> to narrow by related records. On the right: <b>Excel ▾</b> (copy for Excel or download .xlsx), <b>CSV ▾</b> and <b>JSON ▾</b> (copy or download). While you filter, the line under the editor says how many match.</li>
           <li>One record opens as a single table – <b>Field</b>, <b>API name</b>, <b>Value</b>, <b>Field type</b>, <b>Validation rules</b> (how many use the field – click to read them) and <b>History</b> (<i>View</i> lists who changed it, when, and the old and new value) – all fields A–Z; click a header to sort. One line above it: the record's name, <b>⧉ Copy Id</b>, <b>↗ Salesforce</b>, <i>Find a field…</i>, <b>Type ▾</b> (show only some kinds of field) and <i>Show empty fields</i>; related lists in the query are chips on the next line, with their counts – click one to open its records right there. Formula fields have <b>View formula</b>, which opens the formula to read or copy.</li>
@@ -244,6 +246,7 @@ layout: null
           <li><b>Code</b> shows with line numbers and colours. <b>Find in file</b> (or Ctrl+F inside it) marks every match; Enter / Shift+Enter step through them.</li>
           <li><b>⇄ Compare with ▾</b> → an org shows the same component from that org (one org at a time – picking another replaces it; <b>✕ Stop comparing</b> goes back): the details become a side-by-side table and each tab lists only the differences (uncheck <i>Only differences</i> to see all). Code becomes a side-by-side diff.</li>
           <li>For a <b>profile, permission set or permission set group</b>, <b>⇄ Compare with ▾</b> → an org opens <a href="#ps">Compare Permissions</a> straight away with the same item in both orgs: every permission – objects, fields, system and app permissions, Apex, pages, tabs and more – side by side.</li>
+          <li>For a <b>user</b>, <b>⇄ Compare with ▾</b> → an org opens <a href="#users">Compare Users</a> with the same user in both orgs (matched by username, ignoring a sandbox suffix) and runs it. When that org has no such user, its side is left empty for you to pick one.</li>
           <li>Each page starts with its key details – the label above each value – and its tabs. Every table on a page sorts by its headers (Name first).</li>
           <li><b>A user's page:</b> profile, role, email, last login and created at the top; everything else (status, role path, licence, user type, alias, time zone…) is on the <b>Details</b> tab, in groups. <b>Permission sets</b> lists the profile, permission sets, groups and licences with <i>Assigned on</i> and <i>Assigned by</i> from the Setup Audit Trail – older than its 180 days shows ≈ the last change.</li>
           <li><b>An object's Page layouts › Assignments:</b> a matrix – profiles down the side, record types across – each layout in its own colour, every cell on one line (it scrolls sideways). The search box matches profiles and layouts; <i>Layouts ▾</i> and <i>Record types ▾</i> show only the layouts and record types you check – one or several, with <i>All</i> / <i>Clear</i> at the top (record types that use none of the checked layouts are hidden); <b>↺ Reset</b> clears it all.</li>
@@ -378,6 +381,7 @@ layout: null
         </ul>
         <p class="hNote">A batch or queueable job started by a scheduled class is a separate job: look up that class to see its runs. Scheduled flows show their schedule, but Salesforce does not record their runs as Apex jobs.</p>
       </section>
+
 
       <section id="keys">
         <h2>Keyboard shortcuts</h2>
