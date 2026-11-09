@@ -44,7 +44,7 @@ Only these, encrypted, in your browser's storage for this Extension – never Sa
 - **Recent runs** – the inputs you chose in each tool (e.g. names of profiles, users or orgs, an object or record Id), never results. *Remove:* the × next to each one.
 - **Last session** – which tools were open, their names and last inputs or query, so they can be restored. *Remove:* close the tools.
 - **Recent searches** – your last 8 searches in the search box per org (the name and Id of what you opened). *Remove:* Clear.
-- **Preferences** – Compare Code & Metadata scope per pair of orgs, where Where Is It Used looks, hidden table columns. *Change them in the tool.*
+- **Preferences** – Compare Metadata's "What to compare" per pair of orgs, where Where Is It Used looks, hidden table columns. *Change them in the tool.*
 
 Clearing your browser's site data for the Extension removes all of this, including the key.
 

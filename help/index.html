@@ -31,7 +31,7 @@ layout: null
     <h1 class="hTitle">doDev Help</h1>
     <div class="hSearchRow">
       <input id="hSearch" class="hSearch" type="search" placeholder="Search the help – e.g. columns, record access, SOQL" aria-label="Search the help">
-      <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.4.3</span>
+      <span class="hVer" title="This help is kept in the public doinit-dodev-community repository, one version per doDev release">for doDev 1.5</span>
     </div>
     <div class="hLayout">
     <nav class="hToc" aria-label="Contents">
@@ -45,13 +45,11 @@ layout: null
       <a href="#refs">Where Is It Used</a>
       <a href="#inspect">Find Any Metadata</a>
       <div class="hTocGroup">Compare</div>
+      <a href="#code">Compare Metadata</a>
       <a href="#users">Compare Users</a>
-      <a href="#ps">Compare Permissions</a>
-      <a href="#persona">Role &amp; Profile Members</a>
-      <a href="#code">Compare Code &amp; Metadata</a>
+      <a href="#ps">Compare Profiles &amp; Permissions</a>
       <a href="#object">Compare Objects</a>
       <a href="#recs">Compare Records</a>
-      <a href="#org">Compare Org Settings</a>
       <div class="hTocGroup">Monitor</div>
       <a href="#jobs">Jobs</a>
       <div class="hTocGroup">More</div>
@@ -242,24 +240,55 @@ layout: null
         </ul>
       </section>
 
-      <section id="users">
-        <div class="hHead"><div class="hIcon compare">⇄</div><div><h2>Compare Users</h2><p class="hAsk">Why can one user do something another can't?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
-        <p class="hGuides"><b>Guides:</b> <a href="../how-to/compare-two-users">Compare two users</a> · <a href="../how-to/compare-users-in-two-salesforce-orgs">A user in two orgs</a></p>
+      <section id="code">
+        <div class="hHead"><div class="hIcon compare">{ }</div><div><h2>Compare Metadata</h2><p class="hAsk">What differs between two orgs before a deployment – code, objects, access, OmniStudio, settings?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guide:</b> <a href="../how-to/compare-apex-and-metadata-between-orgs">Compare Apex and metadata between orgs</a></p>
         <div class="hTop">
           <div class="hBox"><div class="hLbl">Quick start</div><ol>
-            <li>Pick 2–5 users, from any orgs.</li>
-            <li><span class="ui">Compare</span></li>
+            <li>Pick two orgs.</li>
+            <li>Under <span class="ui">What to compare</span>, pick a type in the empty line – then check <span class="ui">All</span>, or give names (separated by commas, or search). Each type adds a new line.</li>
+            <li>Or <span class="ui">⬆ Compare with a package.xml</span> – its components fill the lines.</li>
+            <li><span class="ui">Compare metadata</span></li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>Before a deployment – just what your package.xml lists.</li>
+            <li>Finding hotfixes made only in production.</li>
+            <li>A profile, an object or an OmniScript differs between sandbox and production.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li>Types: Apex, triggers, Visualforce, LWC, Aura, flows, page layouts, Lightning pages, objects, profiles, permission sets and groups, OmniStudio (OmniScripts, Integration Procedures, FlexCards, Data Mappers), labels, custom metadata and settings, named credentials, remote sites and org settings.</li>
+          <li>One tree like a project: <b>M</b> changed, a coloured dot for only in one org, <b>=</b> identical. Components you name are always listed – identical ones too – and the first one with a difference opens.</li>
+          <li>An object is a folder (fields, record types, rules, triggers, flows, layouts); a profile or permission set is a file per kind of permission. <span class="ui">Compare this … in detail ›</span> and <span class="ui">Open the detailed object comparison ›</span> open Compare Profiles &amp; Permissions or Compare Objects.</li>
+          <li>Search the tree for a component, a file in one, or text inside it. Single-value types (org-wide defaults, password and session policies, remote sites…) show as one table with <span class="ui">All · Changed · Same · Only in …</span> tabs.</li>
+          <li>Flows, layouts and pages are read one by one: checking <span class="ui">All</span> for them says it takes time. An object's layouts are read when you open them (marked <b>?</b> until then).</li>
+          <li><span class="ui">Export</span> has what the view shows: the status of each component and file, <b>+added −removed</b> lines (where the code was opened or is already read) and each setting that differs.</li>
+          <li id="org">Org settings (org-wide defaults, roles, password and session policies, IP ranges, connected apps, organization) are types here – Compare Org Settings is part of Compare Metadata now.</li>
+        </ul>
+      </section>
+
+      <section id="users">
+        <div class="hHead"><div class="hIcon compare">⇄</div><div><h2>Compare Users</h2><p class="hAsk">Why can one user do something another can't – or what does everyone in a role or profile have?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
+        <p class="hGuides"><b>Guides:</b> <a href="../how-to/compare-two-users">Compare two users</a> · <a href="../how-to/compare-users-in-two-salesforce-orgs">A user in two orgs</a> · <a href="../how-to/role-and-profile-members">What everyone in a role or profile has</a></p>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li><span class="ui">Compare</span>: <b>Users</b> – pick 2–5 users, from any orgs. Or <b>All users in a profile</b> / <b>All users in a role</b> – pick the profile or role.</li>
+            <li><span class="ui">Compare</span> (or <span class="ui">Build matrix</span>)</li>
           </ol></div>
           <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
             <li>A new hire can't see what a teammate can.</li>
             <li>Checking a user matches in sandbox and production.</li>
+            <li>Designing a permission set group for a team.</li>
           </ul></div>
         </div>
-        <ul class="hKnow"><li>Each difference names the profile, permission set or group behind it.</li></ul>
+        <ul class="hKnow">
+          <li>Each difference names the profile, permission set or group behind it.</li>
+          <li id="persona">Everyone in a role or profile (was Role &amp; Profile Members): Coverage, Matrix, Differences per person and a Suggested group (deployable).</li>
+        </ul>
       </section>
 
       <section id="ps">
-        <div class="hHead"><div class="hIcon compare">⇄</div><div><h2>Compare Permissions</h2><p class="hAsk">Why can one profile or permission set do something another can't?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
+        <div class="hHead"><div class="hIcon compare">⇄</div><div><h2>Compare Profiles &amp; Permissions</h2><p class="hAsk">Why can one profile or permission set do something another can't?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
         <p class="hGuides"><b>Guides:</b> <a href="../how-to/compare-profiles-and-permission-sets">Two profiles or permission sets</a> · <a href="../how-to/compare-profiles-between-two-salesforce-orgs">Between two orgs</a> · <a href="../how-to/compare-profile-with-permission-set">Profile vs permission set</a> · <a href="../how-to/compare-permission-sets-between-sandbox-and-production">Sandbox vs production</a> · <a href="../how-to/compare-permission-set-groups">Permission set groups</a></p>
         <div class="hTop">
           <div class="hBox"><div class="hLbl">Quick start</div><ol>
@@ -277,41 +306,6 @@ layout: null
         </ul>
       </section>
 
-      <section id="persona">
-        <div class="hHead"><div class="hIcon compare">👥</div><div><h2>Role &amp; Profile Members</h2><p class="hAsk">What does everyone in a role or profile have – and who is different?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
-        <p class="hGuides"><b>Guide:</b> <a href="../how-to/role-and-profile-members">What everyone in a role or profile has</a></p>
-        <div class="hTop">
-          <div class="hBox"><div class="hLbl">Quick start</div><ol>
-            <li>Pick a role or a profile.</li>
-            <li><span class="ui">Build matrix</span></li>
-          </ol></div>
-          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
-            <li>Cleaning up permission sets.</li>
-            <li>Designing a permission set group for a team.</li>
-          </ul></div>
-        </div>
-        <ul class="hKnow"><li>Views: Coverage, Matrix, Differences per person, Suggested group (deployable).</li></ul>
-      </section>
-
-      <section id="code">
-        <div class="hHead"><div class="hIcon compare">{ }</div><div><h2>Compare Code &amp; Metadata</h2><p class="hAsk">What differs between two orgs before a deployment?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
-        <p class="hGuides"><b>Guide:</b> <a href="../how-to/compare-apex-and-metadata-between-orgs">Compare Apex and metadata between orgs</a></p>
-        <div class="hTop">
-          <div class="hBox"><div class="hLbl">Quick start</div><ol>
-            <li>Pick two orgs.</li>
-            <li><span class="ui">Compare code &amp; metadata</span></li>
-          </ol></div>
-          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
-            <li>Before a deployment.</li>
-            <li>Finding hotfixes made only in production.</li>
-          </ul></div>
-        </div>
-        <ul class="hKnow">
-          <li><span class="ui">⚙ What to compare</span> narrows the types or names.</li>
-          <li>Side-by-side diffs; <kbd>j</kbd> / <kbd>k</kbd> jump between changes.</li>
-        </ul>
-      </section>
-
       <section id="object">
         <div class="hHead"><div class="hIcon compare">▤</div><div><h2>Compare Objects</h2><p class="hAsk">Is this object the same in both orgs?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
         <p class="hGuides"><b>Guide:</b> <a href="../how-to/compare-an-object-between-orgs">Compare an object between two orgs</a></p>
@@ -324,7 +318,7 @@ layout: null
             <li>A record saves in the sandbox but not in production.</li>
           </ul></div>
         </div>
-        <ul class="hKnow"><li>Fields, picklist values, record types, validation rules, triggers, flows, layouts and pages.</li></ul>
+        <ul class="hKnow"><li>A report of one object: fields and picklist values as tables, record types, validation rules, triggers, flows, layouts and pages. In Compare Metadata, objects are folders of files – and open this report in one click.</li></ul>
       </section>
 
       <section id="recs">
@@ -344,22 +338,6 @@ layout: null
           <li>Lookups compare by name, so orgs with different Ids still match.</li>
           <li><span class="ui">⇄ Make a record match</span> writes an Apex script or Data Loader CSV – doDev changes nothing.</li>
         </ul>
-      </section>
-
-      <section id="org">
-        <div class="hHead"><div class="hIcon compare">⚙</div><div><h2>Compare Org Settings</h2><p class="hAsk">How are two orgs set up differently?</p></div><div class="hChips"><span class="hChip compare">Compare</span><span class="hChip reads">Only reads</span></div></div>
-        <p class="hGuides"><b>Guide:</b> <a href="../how-to/compare-org-settings">Compare settings between two orgs</a></p>
-        <div class="hTop">
-          <div class="hBox"><div class="hLbl">Quick start</div><ol>
-            <li>Pick two orgs.</li>
-            <li><span class="ui">Compare orgs</span></li>
-          </ol></div>
-          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
-            <li>A login problem happens in one org only.</li>
-            <li>Before refreshing a sandbox.</li>
-          </ul></div>
-        </div>
-        <ul class="hKnow"><li>Sharing defaults, roles, password and session policies, IP ranges, connected apps.</li></ul>
       </section>
 
       <section id="jobs">

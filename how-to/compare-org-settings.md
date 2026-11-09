@@ -13,8 +13,8 @@ image: /how-to/img/compare-org-settings.png
 ## Compare them with doDev
 
 1. [Install doDev](https://chromewebstore.google.com/detail/agcjfjpmlmfbdbgfohficnccnknimhbd?utm_source=dodev-site&utm_medium=how-to) and log into both orgs in the same browser.
-2. Open doDev and go to **Compare → Org Settings**.
-3. Pick the two orgs and click **Compare orgs**.
+2. Open doDev and go to **Compare → Metadata**.
+3. Pick the two orgs. Under **What to compare**, pick the org settings you want – Org-Wide Defaults, Roles, Password Policies, Session Settings, Trusted IP Ranges, Connected App Policies, Organization – and click **Compare metadata**.
 
 You get, with the values that differ highlighted:
 
@@ -24,7 +24,7 @@ You get, with the values that differ highlighted:
 - **Connected app policies.**
 - **Organization settings.**
 
-A tree on the left lists all differences by section; the sections that are the same in both orgs are kept apart under *Identical in all orgs*.
+Each one is a table of every item – org-wide defaults for every object, A–Z – with **All · Changed · Same · Only in …** tabs, so you can see just what differs.
 
 ## Doing it without a tool
 
@@ -32,4 +32,4 @@ Open Sharing Settings, Password Policies, Session Settings, Network Access and t
 
 ---
 
-More how-to guides: [all guides](./) · [doDev help](../help/#org)
+More how-to guides: [all guides](./) · [doDev help](../help/#code)
