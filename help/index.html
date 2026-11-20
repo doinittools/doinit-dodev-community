@@ -347,9 +347,9 @@ layout: null
         <div class="hHead"><div class="hIcon monitor">⇪</div><div><h2>Deployments</h2><p class="hAsk">Who deployed what, when – and what failed?</p></div><div class="hChips"><span class="hChip monitor">Monitor</span><span class="hChip reads">Only reads</span></div></div>
         <div class="hTop">
           <div class="hBox"><div class="hLbl">Quick start</div><ol>
-            <li><span class="ui">Load Deployments</span> – every deployment Salesforce keeps,</li>
-            <li>or first pick <span class="ui">Deployed by</span>, a <span class="ui">Type</span> or a component in <span class="ui">Find a component</span>,</li>
-            <li>or paste a deployment Id (0Af…) there to open that one.</li>
+            <li>Leave everything empty for every deployment Salesforce keeps,</li>
+            <li>or pick a person in <span class="ui">Deployed by</span>, or a <span class="ui">Type</span> and <span class="ui">Component</span>, or paste a <span class="ui">Deployment Id</span> (0Af…),</li>
+            <li><span class="ui">Load Deployments</span>.</li>
           </ol></div>
           <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
             <li>A change appeared and you need to know who deployed it.</li>
@@ -362,7 +362,7 @@ layout: null
           <li>A deployment's page: its components, each Apex class's coverage, failed tests (line, message, stack trace on hover), the test classes it ran and its coverage warnings.</li>
           <li><span class="ui">⧉ Copy</span> copies the test class names, comma-separated. <span class="ui">⬇ Download package.xml</span> saves its components as a package.xml.</li>
           <li>A failed deployment's components show as <span class="ui">Rolled back</span> – Salesforce kept none of them.</li>
-          <li><span class="ui">Include validations</span> adds check-only deployments. <span class="ui">Include Setup Audit Trail</span> also lists the Setup changes to the component you look for (last 180 days).</li>
+          <li><span class="ui">Validations</span> adds check-only deployments. <span class="ui">Setup Audit Trail</span> also lists the Setup changes to the component you look for (last 180 days).</li>
           <li>The search above the list finds components, people, change sets, deployment Ids, the test classes a deployment ran and the classes they covered.</li>
           <li>Salesforce keeps deployments for 30 days. One still running shows once it has finished.</li>
         </ul>
@@ -395,8 +395,8 @@ layout: null
         <div class="hHead"><div class="hIcon monitor">✓</div><div><h2>Tests</h2><p class="hAsk">How well is the code covered – and which tests fail?</p></div><div class="hChips"><span class="hChip monitor">Monitor</span><span class="hChip reads">Only reads</span></div></div>
         <div class="hTop">
           <div class="hBox"><div class="hLbl">Quick start</div><ol>
-            <li><span class="ui">Load Tests</span> for the whole org,</li>
-            <li>or pick a <span class="ui">Class</span> first to open its page straight away.</li>
+            <li><span class="ui">Load Tests</span> for the org's coverage and test runs – then search for a class above the list,</li>
+            <li>or <span class="ui">View all test classes</span> for every test class and its test methods, at once.</li>
           </ol></div>
           <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
             <li>A deployment needs 75% and you need the classes below it.</li>
@@ -408,6 +408,7 @@ layout: null
           <li>The overview: org-wide coverage, classes below 75%, test runs in the last 30 days, the lowest-covered classes and the failed tests – tagged <span class="ui">flaky</span> when a test both passed and failed.</li>
           <li>A class's page: the test classes that cover it, each one's share, and its code – lines no test reaches in red, covered lines in green. <span class="ui">↓ First line not covered</span> jumps to the first red line.</li>
           <li>A test run's page lists every test method's result, failures first, with line, message and time.</li>
+          <li><span class="ui">View all test classes</span> reads only the code: each test class, its test methods (a click shows the method in the code), when it changed and by whom.</li>
           <li>Coverage is from the tests last run in the org (Setup, the Developer Console or the Salesforce CLI). Tests run by a deployment are in Deployments.</li>
           <li>Managed packages' classes are left out. doDev never runs tests.</li>
         </ul>
