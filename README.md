@@ -21,7 +21,7 @@
 | 🔎 | [**Find**](https://doinittools.github.io/doinit-dodev-community/#find) | Who has access to a field, object or permission – and why · Who can open a record – and why · Where a field, class or flow is used · Any metadata, one page each |
 | ⚖️ | [**Compare**](https://doinittools.github.io/doinit-dodev-community/#compare) | Profiles and permission sets · Two users – in one org or two · Apex, flows and metadata between orgs · Objects and org settings · Records, field by field |
 | 🗂️ | [**Data**](https://doinittools.github.io/doinit-dodev-community/#data) | Query without writing SOQL · Start from a list view or a report · Export to Excel, CSV or JSON · Import, update or delete from CSV |
-| ⏱️ | [**Monitor**](https://doinittools.github.io/doinit-dodev-community/#monitor) | Scheduled and batch Apex jobs · Failures in the last 7 days · What runs next · Any job by its Id or class |
+| ⏱️ | [**Monitor**](https://doinittools.github.io/doinit-dodev-community/#monitor) | Deployments – who deployed what, and what failed · Logins – who, from where, and failed logins · Test coverage, failing and flaky tests · Scheduled and batch Apex jobs |
 
 > [!TIP]
 > Press **Ctrl + K** to open any object, field, flow, Apex class, profile or permission set – one page each.
