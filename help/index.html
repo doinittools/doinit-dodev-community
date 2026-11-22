@@ -349,7 +349,7 @@ layout: null
         <div class="hTop">
           <div class="hBox"><div class="hLbl">Quick start</div><ol>
             <li>Leave everything empty for every deployment Salesforce keeps,</li>
-            <li>or pick a person in <span class="ui">Deployed by</span>, or a <span class="ui">Type</span> and <span class="ui">Component</span>, or paste a <span class="ui">Deployment Id</span> (0Af…),</li>
+            <li>or pick a person in <span class="ui">Deployed by</span>, or any component in <span class="ui">Component</span> – one box for every type: a class, field, flow, profile… – or paste a <span class="ui">Deployment Id</span> (0Af…). Use any of them alone or together,</li>
             <li>pick a <span class="ui">Date</span> for only that day’s deployments (with a person or a component too),</li>
             <li><span class="ui">Load Deployments</span>.</li>
           </ol></div>
@@ -387,6 +387,8 @@ layout: null
         </div>
         <ul class="hKnow">
           <li>It opens on the list of every change, newest first: when, who, the section and what happened. Click a person or a section for only theirs.</li>
+          <li>Pick a person in <span class="ui">Changed by</span> (or click one) for their summary: changes, sections, days with changes, the last change, how many created and changed, whom they logged in as, and who logged in as them (with the Login As sessions and the changes made in them) – then every change. Hover a tile for all its values.</li>
+          <li><span class="ui">⬇ Export</span> saves what is shown as a PDF report (the print dialog: Save as PDF) or an Excel sheet – in Deployments and Logins too.</li>
           <li>The tree groups the changes by day, and each day by section – click one for its changes. The search finds changes, people and sections.</li>
           <li>Setup shows the newest 20 changes; here they are all read (up to the newest 10,000).</li>
           <li>It says who changed what and when – not which deployment it came with.</li>
@@ -410,7 +412,8 @@ layout: null
         </div>
         <ul class="hKnow">
           <li>Tiles: logins (browser and API), failed, people, IPs and countries.</li>
-          <li>Failed logins are grouped by reason. A person's page shows every login: time, status, app, IP, city and country, browser and MFA.</li>
+          <li>Failed logins are grouped by reason.</li>
+          <li>Pick a <span class="ui">User</span> (or click a person) for their summary: logins and failures, IPs, places, the last login, browser and API logins, and platforms – then every login.</li>
           <li>Uncheck <span class="ui">Include API logins</span> to see browser logins only.</li>
           <li>The search finds people, IPs, countries, apps and reasons.</li>
           <li>Salesforce keeps login history for about 6 months.</li>
