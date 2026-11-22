@@ -52,6 +52,7 @@ layout: null
       <a href="#recs">Compare Records</a>
       <div class="hTocGroup">Monitor</div>
       <a href="#deploys">Deployments</a>
+      <a href="#audit">Setup Audit Trail</a>
       <a href="#logins">Logins</a>
       <a href="#tests">Tests</a>
       <a href="#jobs">Jobs</a>
@@ -349,6 +350,7 @@ layout: null
           <div class="hBox"><div class="hLbl">Quick start</div><ol>
             <li>Leave everything empty for every deployment Salesforce keeps,</li>
             <li>or pick a person in <span class="ui">Deployed by</span>, or a <span class="ui">Type</span> and <span class="ui">Component</span>, or paste a <span class="ui">Deployment Id</span> (0Af…),</li>
+            <li>pick a <span class="ui">Date</span> for only that day’s deployments (with a person or a component too),</li>
             <li><span class="ui">Load Deployments</span>.</li>
           </ol></div>
           <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
@@ -359,12 +361,36 @@ layout: null
         </div>
         <ul class="hKnow">
           <li>The overview lists the failed or partly succeeded deployments, and who deployed how often.</li>
+          <li>Salesforce keeps deployments for 30 days. For older changes, and changes made in Setup, see <a href="#audit">Setup Audit Trail</a> (180 days).</li>
           <li>A deployment's page: its components, each Apex class's coverage, failed tests (line, message, stack trace on hover), the test classes it ran and its coverage warnings.</li>
           <li><span class="ui">⧉ Copy</span> copies the test class names, comma-separated. <span class="ui">⬇ Download package.xml</span> saves its components as a package.xml.</li>
           <li>A failed deployment's components show as <span class="ui">Rolled back</span> – Salesforce kept none of them.</li>
-          <li><span class="ui">Validations</span> adds check-only deployments. <span class="ui">Setup Audit Trail</span> also lists the Setup changes to the component you look for (last 180 days).</li>
+          <li><span class="ui">Validations</span> adds check-only deployments. A component no deployment has shows its Setup Audit Trail lines instead (last 180 days).</li>
           <li>The search above the list finds components, people, change sets, deployment Ids, the test classes a deployment ran and the classes they covered.</li>
           <li>Salesforce keeps deployments for 30 days. One still running shows once it has finished.</li>
+        </ul>
+      </section>
+
+      <section id="audit">
+        <div class="hHead"><div class="hIcon monitor">☰</div><div><h2>Setup Audit Trail</h2><p class="hAsk">Who changed what in Setup – and when?</p></div><div class="hChips"><span class="hChip monitor">Monitor</span><span class="hChip reads">Only reads</span></div></div>
+        <div class="hTop">
+          <div class="hBox"><div class="hLbl">Quick start</div><ol>
+            <li>Leave everything empty for every change of the last 180 days,</li>
+            <li>or pick a <span class="ui">Date</span> or a person in <span class="ui">Changed by</span>,</li>
+            <li><span class="ui">Load Setup Audit Trail</span>.</li>
+          </ol></div>
+          <div class="hBox use"><div class="hLbl">Use it when…</div><ul>
+            <li>Something changed in Setup and you need to know who did it.</li>
+            <li>A change is older than the 30 days Deployments can show.</li>
+            <li>Reviewing everything one admin changed on one day.</li>
+          </ul></div>
+        </div>
+        <ul class="hKnow">
+          <li>It opens on the list of every change, newest first: when, who, the section and what happened. Click a person or a section for only theirs.</li>
+          <li>The tree groups the changes by day, and each day by section – click one for its changes. The search finds changes, people and sections.</li>
+          <li>Setup shows the newest 20 changes; here they are all read (up to the newest 10,000).</li>
+          <li>It says who changed what and when – not which deployment it came with.</li>
+          <li>Salesforce keeps the Setup Audit Trail for 180 days.</li>
         </ul>
       </section>
 
